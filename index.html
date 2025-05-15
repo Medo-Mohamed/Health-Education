@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/all.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="/images/d313babd30fe48d3816479622453e793.png">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.4/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx-style/0.8.13/xlsx-style.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div class="backGround">
+      <h1>إنشاء الخطة للتثقيف الصحي</h1>
+    </div>
+  </header>
+
+  <main>
+    <button class="btn btn-primary disabled" id="normal">
+      <i class="fa-solid fa-user-tie"></i> اعدادات ابتدائية
+    </button>
+    <button class="btn btn-primary" id="advanced">
+      <i class="fa-brands fa-space-awesome"></i> اعدادات متقدمة
+    </button>
+  </main>
+
+  <section id="normalCon">
+    <p class="note fw-bold">
+      ملحوظة هامة: في هذه الاعدادات يكون كل المواضيع متاحة للمشاركة في الندوات
+      الخارجية او الداخلية
+    </p>
+    <form action="" class="d-flex justify-content-start mt-3 fs-5 fw-bold">
+      <label for="" class="mx-2"> أطفال</label>
+      <input type="number" id="child" min="0" max="1000" />
+      <label for="" class="mx-2">ذكور</label>
+      <input type="number" id="men" min="0" max="1000" />
+      <label for="" class="mx-2">إناث</label>
+      <input type="number" id="women" min="0" max="1000" />
+
+      <button type="button" class="btn btn-primary m-2 done">
+        <i class="fa-solid fa-circle-check"></i> تم
+      </button>
+
+      <button type="button" class="btn btn-danger mx-2 reset disabled">
+        <i class="fa-solid fa-arrow-rotate-right"></i> تحديث
+      </button>
+    </form>
+  </section>
+
+  <section id="advancedCon">
+    <p class="fw-bold">
+      أختر المواضيع وإذا كانت خارجية او داخلية او كلاهم<pdi> :-</pdi>
+    </p>
+    <div class="topicCon">
+      <table>
+        <thead class="thead">
+          <tr>
+            <th width="5%">م</th>
+            <th style="width: 22.5%">الموضوع الرئيسي</th>
+            <th style="width: 22.5%">الموضوع الفرعي</th>
+            <th style="width: 10%">داخلية</th>
+            <th style="width: 10%">خارجية</th>
+            <th style="width: 10%">أطفال</th>
+            <th style="width: 10%">ذكور</th>
+            <th style="width: 10%">إناث</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="dataSelect">
+    <p class="fw-bold text-center">قم بتحديد الفترة الزمنية للخطة من وإلى ...</p>
+    <form action="" class="mt-3 fw-bold text-center">
+      <div class="from d-flex justify-content-center align-items-center">
+        <p for="startDate" class="fw-bold m-0">تاريخ البداية:</p>
+        <input type="date" id="startDate" name="startDate">
+      </div>
+      <div class="to d-flex justify-content-center mt-3 ">
+        <p for="endDate" class="m-0">تاريخ النهاية :</p>
+        <input type="date" id="endDate" name="endDate">
+      </div>
+      <hr />
+      <div class="inWeek">
+        <p class="m-2">ايام الفعلية من كل اسبوع للندوات الداخلية : </p>
+        <label for="SatN" class="">السبت</label> <input type="checkbox" id="SatN" value="6">
+        <label for="SunN" class="me-2">الأحد</label> <input type="checkbox" id="SunN" value="0">
+        <label for="MonN" class="me-2">الأثنين</label> <input type="checkbox" id="MonN" value="1">
+        <label for="TueN" class="me-2">الثلاثاء</label> <input type="checkbox" id="TueN" value="2">
+        <label for="WedN" class="me-2">الأربعاء</label> <input type="checkbox" id="WedN" value="3">
+        <label for="ThuN" class="me-2">الخميس</label> <input type="checkbox" id="ThuN" value="4">
+        <label for="FriN" class="me-2 text-danger">الجمعة</label> <input type="checkbox" id="FriN" value="5">
+      </div>
+      <hr>
+      <div class="outWeek">
+        <p class="m-2">ايام الفعلية من كل اسبوع للندوات الخارجية : </p>
+        <label for="SatO" class="">السبت</label> <input type="checkbox" id="SatO" value="6">
+        <label for="SunO" class="me-2">الأحد</label> <input type="checkbox" id="SunO" value="0">
+        <label for="MonO" class="me-2">الأثنين</label> <input type="checkbox" id="MonO" value="1">
+        <label for="TueO" class="me-2">الثلاثاء</label> <input type="checkbox" id="TueO" value="2">
+        <label for="WedO" class="me-2">الأربعاء</label> <input type="checkbox" id="WedO" value="3">
+        <label for="ThuO" class="me-2">الخميس</label> <input type="checkbox" id="ThuO" value="4">
+        <label for="FriO" class="me-2 text-danger">الجمعة</label> <input type="checkbox" id="FriO" value="5">
+      </div>
+      <p for="twowezy" class="twowezy m-2 d-none">إذا كان هناك يوم به ندوه خارجية وندوة داخلية لمن يكون الأولي</p>
+      <div class="inandoutChose d-none">
+        <label for="bothINday" class="me-2">ندوة داخلية</label> <input class="bothInDay" type="radio" name="0"
+          value="in">
+        <label for="bothINday" class="me-2">ندوة خارجية</label> <input class="bothInDay" type="radio" name="0"
+          value="out">
+        <label for="bothINday" class="me-2">ندوة داخلية وخارجية في نفس اليوم</label> <input class="bothInDay"
+          type="radio" name="0" value="both">
+      </div>
+      <hr>
+      <button type="button" class="btn btn-primary mx-2 supDate"><i class="fa-solid fa-circle-check"></i>
+        حفظ</button>
+      <hr>
+  </section>
+
+  <section id="generate" class="generateAll">
+    <div class="genTitel text-center">
+      <p class="fw-bold text-center">بعد الانتهاء من تفاصيل المواضيع قم بإنشاء المواضيع</p>
+      <button type="button" class="btn btn-primary m-auto generate disabled"><i class="fa-solid fa-gears"></i> انشاء
+        المواضيع
+    </div>
+    <div class="topicContan">
+      <table class="mt-3 table_group">
+      </table>
+    </div>
+    <hr>
+    <div class="genTitel text-center">
+      <p class="fw-bold text-center">بعد الانتهاء من تفاصيل انشاء المواضيع قم بإنشاء الخطة الشهرية والخطة المجمعة</p>
+      <button type="button" class="btn btn-success m-auto generateMonthYear disabled"><i class="fa-solid fa-gears"></i>
+        انشاء
+        الخطة
+    </div>
+    <div class="monthlyCon d-none">
+      <div class="monthly">
+
+      </div>
+      <div class="yearly p-3">
+
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section id="download" class="p-3 d-none">
+    <div class="genTitel text-center ">
+      <p class="fw-bold text-center">بعد الانتهاء من التأكد من الجداول في المواضيع قم بتحميلها في ملف Excel</p>
+      <button type="button" class="btn btn-success m-auto download mx-1" onclick="downloadTablesOfTopics()"><i
+          class="fa-solid fa-download"></i>
+        تحميل
+        الخطة</button>
+      <button type="button" class="btn btn-info m-auto download mx-1" onclick="downloadTableOfDetails()"><i
+          class="fa-solid fa-download"></i>
+        تحميل
+        المواضيع</button>
+    </div>
+
+  </section>
+
+  <section class="overLay">
+    <!-- <div>
+      <p class="fw-bold m-0">المسلسل :0</p>
+      <div class="form1">
+        <div><p for="startDate" class="m-0">التاريخ</p><input type="date" id="startDate" name="startDate" value="2024-01-20"></div>
+        <div><p for="startDate" class="m-0">الموضوع الرئيسي</p><select name="" id="" disabled ><option value="">الموضوع ...</option></select></div>
+        <div><p for="startDate" class="m-0">الموضوع الفرعي</p><select name="" id="" disabled><option value="">الموضوع ...</option></select></div>
+        <div><p for="startDate" class="m-0">مكان الندوة</p><select name="" id="" disabled><option value="">خارجية</option></select></div>
+        <div><p for="startDate" class="m-0">أطفال</p><input type="number" name="" id="" disabled></div>
+        <div><p for="startDate" class="m-0">ذكور</p><input type="number" name="" id="" disabled></div>
+        <div><p for="startDate" class="m-0">إناث</p><input type="number" name="" id="" disabled></div>
+
+      </div>
+      <div class="bottonssd d-flex justify-content-start ">
+        <button type="button" class="btn btn-primary mx-2 Save_overLay">حفظ</button>
+        <button type="button" class="btn btn-danger mx-2 Close_overLay">اغلاق</button>
+      </div>
+    </div> -->
+  </section>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+[
+    {
+        "name": "John",
+        "age": 30,
+        "city": "New York"
+    },
+    {
+        "name": "Peter",
+        "age": 40,
+        "city": "Sydney"
+    },
+    {
+        "name" : "dag",
+        "lname" : "gogo",
+        "age": 50 ,
+        "gender" : true ,
+        "genders" : null 
+        
+    }
+]
+
+
+
+
+
+

@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* :root{
+    
+} */
+body {
+    /* background-color: rgb(97, 97, 97); */
+}
+
+header {
+    /* background-color: rgba(0, 0, 0, 0.308); */
+    height: 70px;
+    width: auto;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.backGround {
+    clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%, 20% 50%);
+    background-color: rgb(128, 128, 128);
+    border: 5px solid rgb(133, 0, 44);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    box-shadow: 10px 10px 10px 100px black;
+}
+
+/* /////////////////////////////////////////// */
+main {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #ececec;
+}
+
+#normalCon {
+    background-color: #cfcfcf;
+    padding: 0.5%;
+}
+
+#normalCon form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 20vh;
+    background-color: #cfcfcf;
+    padding: 0.5%;
+}
+
+#normalCon input {
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 80%;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+}
+
+#advancedCon {
+    display: none;
+    background-color: #cfcfcf;
+    padding: 0.5%;
+}
+
+.topicCon {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    height: 90vh;
+    /* background-color: rgb(224, 224, 224); */
+    padding: 5px;
+    padding-top: 0px;
+    overflow: auto;
+    width: 100%;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0;
+}
+
+thead.thead tr th {
+    position: sticky;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #333;
+    font-size: 18px;
+}
+
+th {
+    background-color: #E0E0E0;
+    color: #333;
+}
+
+.table-group-divider .checkBox {
+    transform: scale(1.5);
+}
+
+.numbIn {
+    width: 80%;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+}
+
+.in {
+    background-color: rgb(0, 255, 0);
+}
+
+.out {
+    background-color: rgb(255, 255, 104);
+}
+
+.both {
+    background-color: rgb(255, 79, 79);
+}
+
+#dataSelect {
+    background-color: rgb(177, 177, 177);
+    font-size: 1rem !important;
+    /* padding: 5px; */
+}
+
+
+#generate {
+    padding: 5px;
+}
+
+#generate table {
+    width: 100%;
+}
+
+.table_group thead tr th {
+    position: sticky;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.table_group tbody tr.inter {
+    background-color: rgb(185, 252, 171);
+}
+
+.table_group tbody tr.outter {
+    background-color: rgb(248, 224, 170);
+}
+
+.topicContan {
+    display: none;
+}
+
+.deleteTopic {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: red;
+}
+
+.reTopic {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgb(17, 0, 255);
+}
+
+
+.table-group-divider th,
+.table-group-divider td {
+    font-size: small;
+}
+
+.table-group-divider thead tr th {
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+
+.intopicandout {
+    background-color: rgb(185, 252, 171);
+}
+
+.yearly {
+    background-color: rgb(253, 186, 186);
+}
+
+/* ////////////////////////////////////// */
+.overLay {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.overLay .befor-element{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001;
+    background-color: transparent;
+    cursor: pointer;
+}
+.overLay>div.inputs-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0 0 0 / 70%);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width:fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1002;
+}
+
+.overLay>div.inputs-contain div {
+    text-align: center;
+}
+
+.overLay>div.inputs-contain input,
+.overLay>div.inputs-contain select {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 80%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.retopict {
+    background-color: rgb(159, 159, 255);
+}
+
+.NewTopicL {
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.NewTopicL:hover i{
+    color: rgb(0, 194, 10);
+}
+
+.NewTopicL i {
+    font-size: 1.5rem;
+}
