@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
- 
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,34 +91,86 @@
       <hr />
       <div class="inWeek">
         <p class="m-2">ايام الفعلية من كل اسبوع للندوات الداخلية : </p>
-        <label for="SatN" class="">السبت</label> <input type="checkbox" id="SatN" value="6">
-        <label for="SunN" class="me-2">الأحد</label> <input type="checkbox" id="SunN" value="0">
-        <label for="MonN" class="me-2">الأثنين</label> <input type="checkbox" id="MonN" value="1">
-        <label for="TueN" class="me-2">الثلاثاء</label> <input type="checkbox" id="TueN" value="2">
-        <label for="WedN" class="me-2">الأربعاء</label> <input type="checkbox" id="WedN" value="3">
-        <label for="ThuN" class="me-2">الخميس</label> <input type="checkbox" id="ThuN" value="4">
-        <label for="FriN" class="me-2 text-danger">الجمعة</label> <input type="checkbox" id="FriN" value="5">
+        <div class="d-flex align-items-center justify-content-evenly flex-wrap">
+          <div class="dayInfo">
+            <label for="SatN" class="">السبت</label>
+            <input type="checkbox" id="SatN" value="6">
+            <input type="number" name="SatN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="SunN">الأحد</label>
+            <input type="checkbox" id="SunN" value="0">
+            <input type="number" name="SunN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="MonN">الأثنين</label>
+            <input type="checkbox" id="MonN" value="1">
+            <input type="number" name="MonN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="TueN">الثلاثاء</label>
+            <input type="checkbox" id="TueN" value="2">
+            <input type="number" name="TueN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="WedN">الأربعاء</label>
+            <input type="checkbox" id="WedN" value="3">
+            <input type="number" name="WedN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="ThuN">الخميس</label>
+            <input type="checkbox" id="ThuN" value="4">
+            <input type="number" name="ThuN" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="FriN" class="text-danger">الجمعة</label>
+            <input type="checkbox" id="FriN" value="5">
+            <input type="number" name="FriN" id="" value="1">
+          </div>
+        </div>
       </div>
       <hr>
       <div class="outWeek">
         <p class="m-2">ايام الفعلية من كل اسبوع للندوات الخارجية : </p>
-        <label for="SatO" class="">السبت</label> <input type="checkbox" id="SatO" value="6">
-        <label for="SunO" class="me-2">الأحد</label> <input type="checkbox" id="SunO" value="0">
-        <label for="MonO" class="me-2">الأثنين</label> <input type="checkbox" id="MonO" value="1">
-        <label for="TueO" class="me-2">الثلاثاء</label> <input type="checkbox" id="TueO" value="2">
-        <label for="WedO" class="me-2">الأربعاء</label> <input type="checkbox" id="WedO" value="3">
-        <label for="ThuO" class="me-2">الخميس</label> <input type="checkbox" id="ThuO" value="4">
-        <label for="FriO" class="me-2 text-danger">الجمعة</label> <input type="checkbox" id="FriO" value="5">
+        <div class="d-flex align-items-center justify-content-evenly flex-wrap">
+          <div class="dayInfo">
+            <label for="SatO">السبت</label>
+            <input type="checkbox" id="SatO" value="6">
+            <input type="number" name="SatO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="SunO">الأحد</label>
+            <input type="checkbox" id="SunO" value="0">
+            <input type="number" name="SunO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="MonO">الأثنين</label>
+            <input type="checkbox" id="MonO" value="1">
+            <input type="number" name="MonO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="TueO">الثلاثاء</label>
+            <input type="checkbox" id="TueO" value="2">
+            <input type="number" name="TueO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="WedO">الأربعاء</label>
+            <input type="checkbox" id="WedO" value="3">
+            <input type="number" name="WedO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="ThuO">الخميس</label>
+            <input type="checkbox" id="ThuO" value="4">
+            <input type="number" name="ThuO" id="" value="1">
+          </div>
+          <div class="dayInfo">
+            <label for="FriO" class="text-danger">الجمعة</label>
+            <input type="checkbox" id="FriO" value="5">
+            <input type="number" name="FriO" id="" value="1">
+          </div>
+        </div>
       </div>
-      <p for="twowezy" class="twowezy m-2 d-none">إذا كان هناك يوم به ندوه خارجية وندوة داخلية لمن يكون الأولي</p>
-      <div class="inandoutChose d-none">
-        <label for="bothINday" class="me-2">ندوة داخلية</label> <input class="bothInDay" type="radio" name="0"
-          value="in">
-        <label for="bothINday" class="me-2">ندوة خارجية</label> <input class="bothInDay" type="radio" name="0"
-          value="out">
-        <label for="bothINday" class="me-2">ندوة داخلية وخارجية في نفس اليوم</label> <input class="bothInDay"
-          type="radio" name="0" value="both">
-      </div>
+     
       <hr>
       <button type="button" class="btn btn-primary mx-2 supDate"><i class="fa-solid fa-circle-check"></i>
         حفظ</button>

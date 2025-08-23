@@ -1277,12 +1277,23 @@ advanced.addEventListener("click", function () {
 
 
 var tablegroupdivider = document.querySelector(".table-group-divider");
-// console.log(tablegroupdivider);
-// var advancedDit = {
-//     in: [],
-//     out: [],
-// }
+let ans = false;
 window.onload = function () {
+    if (localStorage.getItem("saveDataForLate")) {
+        // console.log(localStorage.getItem("saveDataForLate"))
+        ans = confirm("هناك ملفات مخزنة من قبل هل تريد استرجاعها لتكملة التعديل عليها ؟\n لاحظ : في حالة الرفض سوف يتم حذف هذة البيانات القديمة من المخزن.");
+
+        if (ans) {
+            generateFunc();
+            DoneAll = JSON.parse(localStorage.getItem("saveDataForLate"));
+            drowTopic(sortTopic(DoneAll));
+        } else
+            localStorage.removeItem("saveDataForLate");
+    }
+
+    // console.log(ans);
+
+    /////////////////////////
     DataAD.forEach((element) => {
         tablegroupdivider.innerHTML += `
         <tr>
@@ -1414,8 +1425,8 @@ var daysCon = {
 var startDateInput = document.getElementById("startDate");
 var endDateInput = document.getElementById("endDate");
 var startDate, endDate;
-var dataSelectIN = document.querySelectorAll("#dataSelect .inWeek input[type=checkbox]");
-var dataSelectOUT = document.querySelectorAll("#dataSelect .outWeek input[type=checkbox]");
+var dataSelectIN = document.querySelectorAll("#dataSelect .inWeek .dayInfo");
+var dataSelectOUT = document.querySelectorAll("#dataSelect .outWeek .dayInfo");
 var generate = document.querySelector(".generate");
 var bothINday = document.getElementById("bothINday");
 var supDate = document.querySelector(".supDate");
@@ -1423,24 +1434,25 @@ var inandoutChose = document.querySelectorAll(".bothInDay")
 // console.log(inandoutChose)
 supDate.onclick = () => {
     daysCon = {
-        in: [],
-        out: [],
+        in: {},
+        out: {},
         bothINday: "",
     };
     startDate = new Date(startDateInput.value);
     endDate = new Date(endDateInput.value);
+
     dataSelectIN.forEach((e) => {
-        if (e.checked) {
-            daysCon.in.push(+(e.value));
+        if (e.querySelector("input[type=checkbox]").checked) {
+            daysCon.in[+(e.querySelector("input[type=checkbox]").value)] = +e.querySelector("input[type=number]").value;
         }
-    })
+    });
+
     dataSelectOUT.forEach((e) => {
-        if (e.checked) {
-            daysCon.out.push(+(e.value));
+        if (e.querySelector("input[type=checkbox]").checked) {
+            daysCon.out[+(e.querySelector("input[type=checkbox]").value)] = +e.querySelector("input[type=number]").value;
         }
     })
 
-    // console.log(daysCon);
     generate.classList.remove("disabled");
 }
 ////////////////////////////////////////////////////////////////////
@@ -1462,28 +1474,11 @@ function sortTopic(array) {
         return a.day - b.day;
     });
     array.forEach(element => {
-        if (element.day <= 25) {
-            if (x[`${element.month}-${element.year}`]) {
-                x[`${element.month}-${element.year}`].push(element);
-            } else {
-                x[`${element.month}-${element.year}`] = [element];
-            }
+        if (x[`${element.month}-${element.year}`]) {
+            x[`${element.month}-${element.year}`].push(element);
+        } else
+            x[`${element.month}-${element.year}`] = [element];
 
-        } else {
-            if (element.month != 12) {
-                if (x[`${element.month + 1}-${element.year}`]) {
-                    x[`${element.month + 1}-${element.year}`].push(element);
-                } else {
-                    x[`${element.month + 1}-${element.year}`] = [element];
-                }
-            } else {
-                if (x[`${1}-${element.year + 1}`]) {
-                    x[`${1}-${element.year + 1}`].push(element);
-                } else {
-                    x[`${1}-${element.year + 1}`] = [element];
-                }
-            }
-        }
     });
     return x;
 }
@@ -1530,7 +1525,10 @@ var DoneAll = [];
 var tobo = document.querySelector(".table_group");
 var generateMonthYear = document.querySelector(".generateMonthYear");
 
-generate.addEventListener("click", () => {
+
+generate.addEventListener("click", generateFunc)
+
+function generateFunc() {
     var counter = 1;
     DoneAll = [];
     tobo.innerHTML = "";
@@ -1572,51 +1570,55 @@ generate.addEventListener("click", () => {
         var month = startDate.getMonth() + 1; // يضاف واحد لأن الشهور تبدأ من 0
         var year = startDate.getFullYear();
         var formattedDate = day + "/" + month + "/" + year;
-        let checkIn = daysCon.in.includes(startDate.getDay());
-        let checkOut = daysCon.out.includes(startDate.getDay());
+        let checkIn = daysCon.in[startDate.getDay()];
+        let checkOut = daysCon.out[startDate.getDay()];
         if (checkIn) {
-            let randomNumber = Math.floor(Math.random() * (maxRandomIn - 0 + 0)) + 0;
-            // let trueObg = directDetiIn[randomNumber];
-            ////////////////////////////////////////////
-            var newop = {
-                year: year,
-                month: month,
-                day: day,
-                men: directDetiIn[randomNumber].men,
-                child: directDetiIn[randomNumber].child,
-                women: directDetiIn[randomNumber].women,
-                MainTopic: directDetiIn[randomNumber].MainTopic,
-                Subtopic: directDetiIn[randomNumber].Subtopic,
-                id: directDetiIn[randomNumber].id,
-                in: true,
-                out: false,
-                counter: counter,
-                dayWeek: daysOfWeek[startDate.getDay()],
+            for (let index = 0; index < checkIn; index++) {
+                let randomNumber = Math.floor(Math.random() * (maxRandomIn - 0 + 0)) + 0;
+                // let trueObg = directDetiIn[randomNumber];
+                ////////////////////////////////////////////
+                var newop = {
+                    year: year,
+                    month: month,
+                    day: day,
+                    men: directDetiIn[randomNumber].men,
+                    child: directDetiIn[randomNumber].child,
+                    women: directDetiIn[randomNumber].women,
+                    MainTopic: directDetiIn[randomNumber].MainTopic,
+                    Subtopic: directDetiIn[randomNumber].Subtopic,
+                    id: directDetiIn[randomNumber].id,
+                    in: true,
+                    out: false,
+                    counter: counter,
+                    dayWeek: daysOfWeek[startDate.getDay()],
+                }
+                DoneAll.push(newop);
+                counter++;
             }
-            DoneAll.push(newop);
-            counter++;
         }
 
         if (checkOut) {
-            let randomNumber = Math.floor(Math.random() * (maxRandomOut - 0 + 0)) + 0;
-            ////////////////////////////////////////////
-            var newop = {
-                year: year,
-                month: month,
-                day: day,
-                men: directDetiOut[randomNumber].men,
-                child: directDetiOut[randomNumber].child,
-                women: directDetiOut[randomNumber].women,
-                MainTopic: directDetiOut[randomNumber].MainTopic,
-                Subtopic: directDetiOut[randomNumber].Subtopic,
-                id: directDetiOut[randomNumber].id,
-                in: false,
-                out: true,
-                counter: counter,
-                dayWeek: daysOfWeek[startDate.getDay()],
+            for (let index = 0; index < checkOut; index++) {
+                let randomNumber = Math.floor(Math.random() * (maxRandomOut - 0 + 0)) + 0;
+                ////////////////////////////////////////////
+                var newop = {
+                    year: year,
+                    month: month,
+                    day: day,
+                    men: directDetiOut[randomNumber].men,
+                    child: directDetiOut[randomNumber].child,
+                    women: directDetiOut[randomNumber].women,
+                    MainTopic: directDetiOut[randomNumber].MainTopic,
+                    Subtopic: directDetiOut[randomNumber].Subtopic,
+                    id: directDetiOut[randomNumber].id,
+                    in: false,
+                    out: true,
+                    counter: counter,
+                    dayWeek: daysOfWeek[startDate.getDay()],
+                }
+                DoneAll.push(newop);
+                counter++;
             }
-            DoneAll.push(newop);
-            counter++;
         }
         startDate.setDate(startDate.getDate() + 1); // يزيد التاريخ بيوم واحد
     }
@@ -1630,8 +1632,7 @@ generate.addEventListener("click", () => {
     ////////////////////////////////////////////////
     // console.log(DoneAll);
 
-})
-
+}
 
 function deleteTopic(e) {
     // console.log(dataMontlyAll)
@@ -1881,6 +1882,7 @@ let closeLay = () => {
 /////////////////////////////////////////////////////////////////////
 
 generateMonthYear.addEventListener("click", () => {
+    localStorage.setItem("saveDataForLate", JSON.stringify(DoneAll));
     var dataMontlyAll = sortTopic(DoneAll);
     // console.log(dataMontlyAll)
 

@@ -140,6 +140,24 @@ th {
     background-color: rgb(255, 79, 79);
 }
 
+#dataSelect input[type="number"] {
+    outline: none;
+    width: 70px;
+}
+.dayInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px;
+    border: 0.5px solid black;
+    border-radius: 10px;
+}
+.dayInfo input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
 #dataSelect {
     background-color: rgb(177, 177, 177);
     font-size: 1rem !important;
@@ -217,7 +235,8 @@ th {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
-.overLay .befor-element{
+
+.overLay .befor-element {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -226,6 +245,7 @@ th {
     background-color: transparent;
     cursor: pointer;
 }
+
 .overLay>div.inputs-contain {
     display: flex;
     flex-direction: column;
@@ -235,7 +255,7 @@ th {
     color: white;
     border-radius: 10px;
     padding: 10px;
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
     position: absolute;
     top: 50%;
@@ -269,7 +289,8 @@ th {
     border-radius: 5px;
     cursor: pointer;
 }
-.NewTopicL:hover i{
+
+.NewTopicL:hover i {
     color: rgb(0, 194, 10);
 }
 
