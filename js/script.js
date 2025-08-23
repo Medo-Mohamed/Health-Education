@@ -1425,6 +1425,8 @@ var daysCon = {
 var startDateInput = document.getElementById("startDate");
 var endDateInput = document.getElementById("endDate");
 var startDate, endDate;
+startDate = new Date(startDateInput.value);
+endDate = new Date(endDateInput.value);
 var dataSelectIN = document.querySelectorAll("#dataSelect .inWeek .dayInfo");
 var dataSelectOUT = document.querySelectorAll("#dataSelect .outWeek .dayInfo");
 var generate = document.querySelector(".generate");
