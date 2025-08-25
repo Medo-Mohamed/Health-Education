@@ -1253,10 +1253,13 @@ const DataN = [
     },
 ];
 
+var DoneAll = [];
+
 var normal = document.getElementById("normal");
 var advanced = document.getElementById("advanced");
 var normalCon = document.getElementById("normalCon");
 var advancedCon = document.getElementById("advancedCon");
+var tobo = document.querySelector(".table_group");
 normal.addEventListener("click", function () {
     if (!(normal.classList.contains("disabled"))) {
         advancedCon.style.display = "none";
@@ -1284,8 +1287,9 @@ window.onload = function () {
         ans = confirm("هناك ملفات مخزنة من قبل هل تريد استرجاعها لتكملة التعديل عليها ؟\n لاحظ : في حالة الرفض سوف يتم حذف هذة البيانات القديمة من المخزن.");
 
         if (ans) {
-            generateFunc();
             DoneAll = JSON.parse(localStorage.getItem("saveDataForLate"));
+            console.log(DoneAll);
+            // generateFunc();
             drowTopic(sortTopic(DoneAll));
         } else
             localStorage.removeItem("saveDataForLate");
@@ -1465,6 +1469,7 @@ var monthNames = [
 var daysOfWeek = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
 
 function sortTopic(array) {
+    localStorage.setItem("saveDataForLate", JSON.stringify(array));
     const x = {};
     array.sort((a, b) => {
         if (a.year !== b.year) {
@@ -1486,8 +1491,27 @@ function sortTopic(array) {
 }
 
 function drowTopic(object) {
+    console.log("drowTopic")
+    // tobo.innerHTML = "";
+    tobo.innerHTML = ` 
+    <thead class="table-group-divider">
+    <th>م</th>
+    <th>التاريخ</th>
+    <th>اليوم</th>
+    <th>الموضوع الرئيسي</th>
+    <th>الموضوع الفرعي</th>
+    <th>خارجية</th>
+    <th>داخلية</th>
+    <th>اطفال</th>
+    <th>ذكور</th>
+    <th>إناث</th>
+    <th style ="width : 7%;">تعديل</th>
+    <th style ="width : 7%;">حذف</th>
+    </thead>
+    <tbody id="tbody">
+    <!-- ////// -->
+    </tbody>`;
     var tbody = document.getElementById("tbody");
-    tbody.innerHTML = '';
     Object.keys(object).forEach(ele => {
         let detti = ele.split("-");
         tbody.innerHTML += `<tr>
@@ -1519,12 +1543,14 @@ function drowTopic(object) {
     <td colspan = "12"><i class="fa-solid fa-circle-plus"></i></td>
     </tr>
     `;
+    document.querySelector(".topicContan").style.display = "block";
+    generateMonthYear.classList.remove("disabled");
 }
 
 
 
-var DoneAll = [];
-var tobo = document.querySelector(".table_group");
+
+
 var generateMonthYear = document.querySelector(".generateMonthYear");
 
 
@@ -1533,27 +1559,9 @@ generate.addEventListener("click", generateFunc)
 function generateFunc() {
     var counter = 1;
     DoneAll = [];
-    tobo.innerHTML = "";
-    tobo.innerHTML = ` 
-    <thead class="table-group-divider">
-    <th>م</th>
-    <th>التاريخ</th>
-    <th>اليوم</th>
-    <th>الموضوع الرئيسي</th>
-    <th>الموضوع الفرعي</th>
-    <th>خارجية</th>
-    <th>داخلية</th>
-    <th>اطفال</th>
-    <th>ذكور</th>
-    <th>إناث</th>
-    <th style ="width : 7%;">تعديل</th>
-    <th style ="width : 7%;">حذف</th>
-    </thead>
-    <tbody id="tbody">
-    <!-- ////// -->
-    </tbody>`;
+
     // tbody.innerHTML = "";
-    var tbody = document.getElementById("tbody");
+    // var tbody = document.getElementById("tbody");
     let helper = new Date(startDate);
     let especifcIN = DataAD.filter(ele => ele.in);
     let especifcOut = DataAD.filter(ele => ele.out);
@@ -1629,8 +1637,7 @@ function generateFunc() {
     drowTopic(sortTopic(DoneAll))
 
     startDate = helper;
-    document.querySelector(".topicContan").style.display = "block";
-    generateMonthYear.classList.remove("disabled");
+
     ////////////////////////////////////////////////
     // console.log(DoneAll);
 
@@ -1884,7 +1891,7 @@ let closeLay = () => {
 /////////////////////////////////////////////////////////////////////
 
 generateMonthYear.addEventListener("click", () => {
-    localStorage.setItem("saveDataForLate", JSON.stringify(DoneAll));
+
     var dataMontlyAll = sortTopic(DoneAll);
     // console.log(dataMontlyAll)
 
