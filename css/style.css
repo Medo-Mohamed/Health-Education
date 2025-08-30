@@ -297,3 +297,20 @@ th {
 .NewTopicL i {
     font-size: 1.5rem;
 }
+
+.uploadFile {
+    margin: 20px 0;
+    text-align: center;
+    background-color: rgb(255, 216, 117);
+    padding: 5px;
+}
+
+.uploadFile h2 {
+    margin-bottom: 10px;
+}
+
+.uploadFile input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

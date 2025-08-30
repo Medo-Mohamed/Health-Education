@@ -1277,6 +1277,82 @@ advanced.addEventListener("click", function () {
 
     }
 })
+/////////////////////////////////////////
+document.getElementById('excelFile').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const fullOk = await isXlsxFile(file);
+    if (!fullOk) {
+        alert('الملف ليس بصيغة XLSX صحيحة.');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+        const data = new Uint8Array(event.target.result);
+        const workbook = XLSX.read(data, {
+            type: 'array', cellDates: true, cellText: false, cellNF: true
+        });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const json = XLSX.utils.sheet_to_json(sheet, { defval: null, raw: false, dateNF: 'yyyy-mm-dd' });
+        // console.log(json)
+        let testDate = [];
+        json.forEach(row => {
+            if (!isNaN(row["م"])) {
+                let topicInfoId = DataN.find((t) => t.Subtopic === row["الموضوع الفرعي"]);
+                if (topicInfoId) {
+
+                    let [day, month, year] = row["التاريخ"].split("/");
+                    year = Number(year) < 2000 ? Number(year) + 2000 : Number(year);
+
+                    testDate.push({
+                        year: year,
+                        month: Number(month),
+                        day: Number(day),
+
+                        men: Number(row["ذكور"]),
+                        child: Number(row["اطفال"]),
+                        women: Number(row["إناث"]),
+
+                        MainTopic: row["الموضوع الرئيسي"],
+                        Subtopic: row["الموضوع الفرعي"],
+
+                        id: topicInfoId.id,
+
+                        in: row["خارجية"] === "داخلية",
+                        out: row["خارجية"] === "خارجية",
+                        counter: Number(row["م"]),
+                        dayWeek: row["اليوم"],
+                    });
+                }
+            }
+        })
+        if (testDate.length > 0) {
+            DoneAll = [...testDate];
+            drowTopic(sortTopic(DoneAll));
+        }
+        // console.log(testDate)
+        delete testDate;
+
+    };
+    reader.readAsArrayBuffer(file);
+});
+
+function isXlsxFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = (e) => {
+            const arr = new Uint8Array(e.target.result).subarray(0, 4);
+            const header = Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+            resolve(header === '504b0304');
+        };
+        reader.onerror = reject;
+        reader.readAsArrayBuffer(file.slice(0, 4));
+    });
+}
+
+/////////////////////////////////////////
 
 
 var tablegroupdivider = document.querySelector(".table-group-divider");
@@ -1469,6 +1545,7 @@ var monthNames = [
 var daysOfWeek = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
 
 function sortTopic(array) {
+    // console.log(array);
     localStorage.setItem("saveDataForLate", JSON.stringify(array));
     const x = {};
     array.sort((a, b) => {
@@ -1491,7 +1568,7 @@ function sortTopic(array) {
 }
 
 function drowTopic(object) {
-    console.log("drowTopic")
+    // console.log("drowTopic")
     // tobo.innerHTML = "";
     tobo.innerHTML = ` 
     <thead class="table-group-divider">
