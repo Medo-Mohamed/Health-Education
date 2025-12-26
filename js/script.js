@@ -12,7 +12,7 @@ const DataAD = [
     {
         id: 2,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النشاط البدني وممارسة الرياضة",
+        Subtopic: "النشاط البدنى وممارسة الرياضة",
         in: false,
         out: false,
         child: 0,
@@ -22,7 +22,7 @@ const DataAD = [
     {
         id: 3,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "مكافحة التدخين والادمان",
+        Subtopic: "مكافحة التدخين والإدمان",
         in: false,
         out: false,
         child: 0,
@@ -42,7 +42,7 @@ const DataAD = [
     {
         id: 5,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النظافة الشخصية",
+        Subtopic: "النظافة الشخصية ",
         in: false,
         out: false,
         child: 0,
@@ -52,7 +52,7 @@ const DataAD = [
     {
         id: 6,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "صحة الفم والاسنان",
+        Subtopic: "صحة الفم والأسنان",
         in: false,
         out: false,
         child: 0,
@@ -62,7 +62,7 @@ const DataAD = [
     {
         id: 7,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "تغذية ما قبل واثناء الحمل وبعد الولادة",
+        Subtopic: "تغذية ما قبل  وأثناء الحمل وبعد الولادة",
         in: false,
         out: false,
         child: 0,
@@ -72,7 +72,7 @@ const DataAD = [
     {
         id: 8,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "إدمان الانترنت والهواتف الذكية",
+        Subtopic: "إدمان الإنترنت والهواتف الذكية",
         in: false,
         out: false,
         child: 0,
@@ -82,7 +82,7 @@ const DataAD = [
     {
         id: 9,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "سواء استخدام المضدات الحيوية والعقاقير",
+        Subtopic: "سوء استخدام المضادت الحيوية والعقاقير",
         in: false,
         out: false,
         child: 0,
@@ -92,7 +92,7 @@ const DataAD = [
     {
         id: 10,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "امراض القلب والاوعية الدموية",
+        Subtopic: "أمراض القلب والأوعية الدموية",
         in: false,
         out: false,
         child: 0,
@@ -142,7 +142,7 @@ const DataAD = [
     {
         id: 15,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الامراض الطفيلية",
+        Subtopic: "الأمراض الطفيلية",
         in: false,
         out: false,
         child: 0,
@@ -152,7 +152,7 @@ const DataAD = [
     {
         id: 16,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الإلتهاب الكبدي الفيروسي",
+        Subtopic: "الالتهاب الكبدي الفيروسي ",
         in: false,
         out: false,
         child: 0,
@@ -182,7 +182,7 @@ const DataAD = [
     {
         id: 19,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الامراض المنقولة جنسياً الإيدز",
+        Subtopic: "الأمراض المنقولة جنسيا والإيدز",
         in: false,
         out: false,
         child: 0,
@@ -202,7 +202,7 @@ const DataAD = [
     {
         id: 21,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغدائي والفحص السمعي",
+        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغذائي  والفحص السمعي",
         in: false,
         out: false,
         child: 0,
@@ -242,7 +242,7 @@ const DataAD = [
     {
         id: 25,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "سوء التغذية (سمنة - تقزم - نقص الوزن - انميا)",
+        Subtopic: "سوء التغذية ( سمنة - تقزم - نقص الوزن - انيميا )",
         in: false,
         out: false,
         child: 0,
@@ -342,7 +342,7 @@ const DataAD = [
     {
         id: 35,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "الأمراض الجلدية",
+        Subtopic: "الأمراض الجلدية ",
         in: false,
         out: false,
         child: 0,
@@ -382,7 +382,7 @@ const DataAD = [
     {
         id: 39,
         MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي",
+        Subtopic: "الحد من استخدام البلاستيك الأحادي الإستخدام",
         in: false,
         out: false,
         child: 0,
@@ -392,7 +392,7 @@ const DataAD = [
     {
         id: 40,
         MainTopic: "صحة البيئة",
-        Subtopic: "البيئة الصحية",
+        Subtopic: " البيئة الصحية",
         in: false,
         out: false,
         child: 0,
@@ -442,7 +442,7 @@ const DataAD = [
     {
         id: 45,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن السمنة والأنميا والتقزم لطلاب المدارس الإبتدائية",
+        Subtopic: "الكشف عن السمنة والأنيميا والتقزم لطلاب المدارس الإبتدائية",
         in: false,
         out: false,
         child: 0,
@@ -462,7 +462,7 @@ const DataAD = [
     {
         id: 47,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن فيرس سي بين طلاب المدارس الإعدادية",
+        Subtopic: "الكشف عن فيروس سي بين طلاب المدارس الإعدادية",
         in: false,
         out: false,
         child: 0,
@@ -472,7 +472,7 @@ const DataAD = [
     {
         id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين على الزواج",
+        Subtopic: "مبادرة فحص المقبلين علي الزواج",
         in: false,
         out: false,
         child: 0,
@@ -482,7 +482,7 @@ const DataAD = [
     {
         id: 49,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة الكشف المبكر وعلاج الأورام السرطانية",
+        Subtopic: "مبادرة الكشف المبكر و علاج الأورام السرطانية",
         in: false,
         out: false,
         child: 0,
@@ -534,7 +534,7 @@ const DataN = [
     {
         id: 2,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النشاط البدني وممارسة الرياضة",
+        Subtopic: "النشاط البدنى وممارسة الرياضة",
         in: false,
         out: false,
         child: 0,
@@ -544,7 +544,7 @@ const DataN = [
     {
         id: 3,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "مكافحة التدخين والادمان",
+        Subtopic: "مكافحة التدخين والإدمان",
         in: false,
         out: false,
         child: 0,
@@ -564,7 +564,7 @@ const DataN = [
     {
         id: 5,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النظافة الشخصية",
+        Subtopic: "النظافة الشخصية ",
         in: false,
         out: false,
         child: 0,
@@ -574,7 +574,7 @@ const DataN = [
     {
         id: 6,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "صحة الفم والاسنان",
+        Subtopic: "صحة الفم والأسنان",
         in: false,
         out: false,
         child: 0,
@@ -584,7 +584,7 @@ const DataN = [
     {
         id: 7,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "تغذية ما قبل واثناء الحمل وبعد الولادة",
+        Subtopic: "تغذية ما قبل  وأثناء الحمل وبعد الولادة",
         in: false,
         out: false,
         child: 0,
@@ -594,7 +594,7 @@ const DataN = [
     {
         id: 8,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "إدمان الانترنت والهواتف الذكية",
+        Subtopic: "إدمان الإنترنت والهواتف الذكية",
         in: false,
         out: false,
         child: 0,
@@ -604,7 +604,7 @@ const DataN = [
     {
         id: 9,
         MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "سواء استخدام المضدات الحيوية والعقاقير",
+        Subtopic: "سوء استخدام المضادت الحيوية والعقاقير",
         in: false,
         out: false,
         child: 0,
@@ -614,7 +614,7 @@ const DataN = [
     {
         id: 10,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "امراض القلب والاوعية الدموية",
+        Subtopic: "أمراض القلب والأوعية الدموية",
         in: false,
         out: false,
         child: 0,
@@ -664,7 +664,7 @@ const DataN = [
     {
         id: 15,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الامراض الطفيلية",
+        Subtopic: "الأمراض الطفيلية",
         in: false,
         out: false,
         child: 0,
@@ -674,7 +674,7 @@ const DataN = [
     {
         id: 16,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الإلتهاب الكبدي الفيروسي",
+        Subtopic: "الالتهاب الكبدي الفيروسي ",
         in: false,
         out: false,
         child: 0,
@@ -704,7 +704,7 @@ const DataN = [
     {
         id: 19,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الامراض المنقولة جنسياً الإيدز",
+        Subtopic: "الأمراض المنقولة جنسيا والإيدز",
         in: false,
         out: false,
         child: 0,
@@ -724,7 +724,7 @@ const DataN = [
     {
         id: 21,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغدائي والفحص السمعي",
+        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغذائي  والفحص السمعي",
         in: false,
         out: false,
         child: 0,
@@ -764,7 +764,7 @@ const DataN = [
     {
         id: 25,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "سوء التغذية (سمنة - تقزم - نقص الوزن - انميا)",
+        Subtopic: "سوء التغذية ( سمنة - تقزم - نقص الوزن - انيميا )",
         in: false,
         out: false,
         child: 0,
@@ -864,7 +864,7 @@ const DataN = [
     {
         id: 35,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "الأمراض الجلدية",
+        Subtopic: "الأمراض الجلدية ",
         in: false,
         out: false,
         child: 0,
@@ -904,7 +904,7 @@ const DataN = [
     {
         id: 39,
         MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي",
+        Subtopic: "الحد من استخدام البلاستيك الأحادي الإستخدام",
         in: false,
         out: false,
         child: 0,
@@ -914,7 +914,7 @@ const DataN = [
     {
         id: 40,
         MainTopic: "صحة البيئة",
-        Subtopic: "البيئة الصحية",
+        Subtopic: " البيئة الصحية",
         in: false,
         out: false,
         child: 0,
@@ -964,7 +964,7 @@ const DataN = [
     {
         id: 45,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن السمنة والأنميا والتقزم لطلاب المدارس الإبتدائية",
+        Subtopic: "الكشف عن السمنة والأنيميا والتقزم لطلاب المدارس الإبتدائية",
         in: false,
         out: false,
         child: 0,
@@ -984,7 +984,7 @@ const DataN = [
     {
         id: 47,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن فيرس سي بين طلاب المدارس الإعدادية",
+        Subtopic: "الكشف عن فيروس سي بين طلاب المدارس الإعدادية",
         in: false,
         out: false,
         child: 0,
@@ -994,7 +994,7 @@ const DataN = [
     {
         id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين على الزواج",
+        Subtopic: "مبادرة فحص المقبلين علي الزواج",
         in: false,
         out: false,
         child: 0,
@@ -1004,7 +1004,7 @@ const DataN = [
     {
         id: 49,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة الكشف المبكر وعلاج الأورام السرطانية",
+        Subtopic: "مبادرة الكشف المبكر و علاج الأورام السرطانية",
         in: false,
         out: false,
         child: 0,
@@ -1041,7 +1041,7 @@ const DataN = [
         men: 0,
         women: 0,
     },
-]
+];
 
 var DoneAll = [];
 
@@ -1089,11 +1089,10 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
         const json = XLSX.utils.sheet_to_json(sheet, { defval: null, raw: false, dateNF: 'yyyy-mm-dd' });
         // console.log(json)
         let testDate = [];
+        let counter = 0;
         json.forEach(row => {
-
             if (!isNaN(row["م"])) {
                 let topicInfoId = DataN.find((t) => t.Subtopic === row["الموضوع الفرعي"]);
-
                 if (topicInfoId) {
 
                     let [day, month, year] = row["التاريخ"].split("/");
@@ -1121,7 +1120,6 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
                 }
             }
         })
-        console.log(testDate.length);
         if (testDate.length > 0) {
             DoneAll = [...testDate];
             drowTopic(sortTopic(DoneAll));
