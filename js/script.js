@@ -162,7 +162,7 @@ const DataAD = [
     {
         id: 17,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الإنفلونزا الموسمية والمستجدة",
+        Subtopic: "الانفلونزا الموسمية والمستجدة و الفيروس التنفسى المخلوى و كوفيد 19  - فيروس كورونا المستجد",
         in: false,
         out: false,
         child: 0,
@@ -201,16 +201,6 @@ const DataAD = [
     },
     {
         id: 21,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "كوفيد 19 - فيروس كورونا المستجد",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 22,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغدائي والفحص السمعي",
         in: false,
@@ -220,27 +210,17 @@ const DataAD = [
         women: 0,
     },
     {
+        id: 22,
+        MainTopic: "بيان صحة الطفل",
+        Subtopic: "البطاقة الصحة و تطعيمات الاطفال",
+        in: false,
+        out: false,
+        child: 0,
+        men: 0,
+        women: 0,
+    },
+    {
         id: 23,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "البطاقة الصحية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 24,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "تطعيمات الاطفال",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 25,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "رعاية المولود حديث الولادة",
         in: false,
@@ -250,7 +230,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 26,
+        id: 24,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "الرضاعة الطبيعية والتغذية التكميلية",
         in: false,
@@ -260,7 +240,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 27,
+        id: 25,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "سوء التغذية (سمنة - تقزم - نقص الوزن - انميا)",
         in: false,
@@ -270,7 +250,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 28,
+        id: 26,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "أمراض الجهاز التنفسي",
         in: false,
@@ -280,7 +260,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 29,
+        id: 27,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "الإسهال والجفاف",
         in: false,
@@ -290,7 +270,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 30,
+        id: 28,
         MainTopic: "بيان صحة الطفل",
         Subtopic: "التشجيع على الولادة الطبيعية",
         in: false,
@@ -300,9 +280,9 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 31,
+        id: 29,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "السلامة المنزلية",
+        Subtopic: "السلامة المنزلية و الإسعافات الأولية",
         in: false,
         out: false,
         child: 0,
@@ -310,17 +290,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 32,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الإسعافات الاولية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 33,
+        id: 30,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "الفحوص الطبية الروتينية والفحوص الدورية للسيدات",
         in: false,
@@ -330,7 +300,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 34,
+        id: 31,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "الصحة النفسية",
         in: false,
@@ -340,7 +310,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 35,
+        id: 32,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "رعاية المسنين",
         in: false,
@@ -350,7 +320,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 36,
+        id: 33,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "رعاية ذوي الاحتياجات الخاصة",
         in: false,
@@ -360,7 +330,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 37,
+        id: 34,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "أهمية التبرع بالدم / التبرع بالبلازما",
         in: false,
@@ -370,7 +340,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 38,
+        id: 35,
         MainTopic: "بيان الصحة العامة",
         Subtopic: "الأمراض الجلدية",
         in: false,
@@ -380,7 +350,27 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 39,
+        id: 36,
+        MainTopic: "بيان الصحة العامة",
+        Subtopic: "مشروبات الطاقة",
+        in: false,
+        out: false,
+        child: 0,
+        men: 0,
+        women: 0,
+    },
+    {
+        id: 37,
+        MainTopic: "بيان الصحة العامة",
+        Subtopic: "التوعية بالسعار (داء الكلب)",
+        in: false,
+        out: false,
+        child: 0,
+        men: 0,
+        women: 0,
+    },
+    {
+        id: 38,
         MainTopic: "صحة البيئة",
         Subtopic: "التغيرات المناخية",
         in: false,
@@ -390,7 +380,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 40,
+        id: 39,
         MainTopic: "صحة البيئة",
         Subtopic: "الحد من استخدام البلاستيك الأحادي",
         in: false,
@@ -400,7 +390,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 41,
+        id: 40,
         MainTopic: "صحة البيئة",
         Subtopic: "البيئة الصحية",
         in: false,
@@ -410,17 +400,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 42,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "القضاء على فيروس سي والكشف عن الأمراض المعدية غير السارية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 43,
+        id: 41,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "دعم صحة المرأة المصرية",
         in: false,
@@ -430,7 +410,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 44,
+        id: 42,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "دعم صحة الأم والجنين",
         in: false,
@@ -440,7 +420,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 45,
+        id: 43,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "اكتشاف وعلاج ضعف وفقدان السمع للأطفال حديثي الولادة",
         in: false,
@@ -450,7 +430,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 46,
+        id: 44,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "متابعة وعلاج الأمراض المزمنة والكشف المبكر عن الاعتلال الكلوي",
         in: false,
@@ -460,7 +440,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 47,
+        id: 45,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "الكشف عن السمنة والأنميا والتقزم لطلاب المدارس الإبتدائية",
         in: false,
@@ -470,17 +450,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 48,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "إنهاء قوائم الانتظار",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 49,
+        id: 46,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "الرعاية الصحية والنفسية المستمرة لكبار السن",
         in: false,
@@ -490,7 +460,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 50,
+        id: 47,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "الكشف عن فيرس سي بين طلاب المدارس الإعدادية",
         in: false,
@@ -500,57 +470,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 51,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف المبكر عن الامراض الوراثية للأطفال حديثي الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 52,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "حياة كريمة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 53,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مرضي ضمور العضلات",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 54,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة ايامنا أحلي (رفع الوعي الصحي للشرائح العمرية والمجتمعية المختلفة بأهمية تنظيم الإسرة)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 55,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة المشروع القومي لتنمية الاسرة المصرية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 56,
+        id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "مبادرة فحص المقبلين على الزواج",
         in: false,
@@ -560,7 +480,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 57,
+        id: 49,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "مبادرة الكشف المبكر وعلاج الأورام السرطانية",
         in: false,
@@ -570,9 +490,9 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 58,
+        id: 50,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة 100 يوم صحة",
+        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية )",
         in: false,
         out: false,
         child: 0,
@@ -580,27 +500,7 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 59,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية للتنمية البشرية(بداية)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 60,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 61,
+        id: 51,
         MainTopic: "مبادرات رئاسية وحملات توعية",
         Subtopic: "مبادرة كل ثانية حياة",
         in: false,
@@ -610,648 +510,538 @@ const DataAD = [
         women: 0,
     },
     {
-        id: 62,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "سمكة القراض (الأرنب)",
+        id: 52,
+        MainTopic: "مبادرات رئاسية وحملات توعية",
+        Subtopic: "مبادرة صحتك سعادة",
         in: false,
         out: false,
         child: 0,
         men: 0,
         women: 0,
     },
-    {
-        id: 63,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "جدري القرود",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 64,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "الفيروس التنفسي المخلوي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 65,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "مشروبات الطاقة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 66,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "التوعية بالسعار(داء الكلب)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-
 ];
 const DataN = [
     {
         id: 1,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "التغذية السليمة",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 2,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "النشاط البدني وممارسة الرياضة",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 3,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "مكافحة التدخين والادمان",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 4,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "العمود الفقري وضعف الابصار",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 5,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "النظافة الشخصية",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 6,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "صحة الفم والاسنان",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 7,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "تغذية ما قبل واثناء الحمل وبعد الولادة",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 8,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "إدمان الانترنت والهواتف الذكية",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 9,
         MainTopic: "بيان النمط السليم للحياة الصحية",
         Subtopic: "سواء استخدام المضدات الحيوية والعقاقير",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 10,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
         Subtopic: "امراض القلب والاوعية الدموية",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 11,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
         Subtopic: "داء السكري",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 12,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
         Subtopic: "ارتفاع ضغط الدم",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 13,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
         Subtopic: "الأورام",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 14,
         MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
         Subtopic: "السمنة",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 15,
         MainTopic: "بيان الوقاية من الامراض المعدية",
         Subtopic: "الامراض الطفيلية",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 16,
         MainTopic: "بيان الوقاية من الامراض المعدية",
         Subtopic: "الإلتهاب الكبدي الفيروسي",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 17,
         MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الإنفلونزا الموسمية والمستجدة",
-        women: 0,
+        Subtopic: "الانفلونزا الموسمية والمستجدة و الفيروس التنفسى المخلوى و كوفيد 19  - فيروس كورونا المستجد",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 18,
         MainTopic: "بيان الوقاية من الامراض المعدية",
         Subtopic: "الدرن",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 19,
         MainTopic: "بيان الوقاية من الامراض المعدية",
         Subtopic: "الامراض المنقولة جنسياً الإيدز",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 20,
         MainTopic: "بيان الوقاية من الامراض المعدية",
         Subtopic: "الحصبة والحصبة الالماني",
-        women: 0,
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 21,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "كوفيد 19 - فيروس كورونا المستجد",
-        women: 0,
+        MainTopic: "بيان صحة الطفل",
+        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغدائي والفحص السمعي",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 22,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغدائي والفحص السمعي",
-        women: 0,
+        Subtopic: "البطاقة الصحة و تطعيمات الاطفال",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 23,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "البطاقة الصحية",
-        women: 0,
+        Subtopic: "رعاية المولود حديث الولادة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 24,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "تطعيمات الاطفال",
-        women: 0,
+        Subtopic: "الرضاعة الطبيعية والتغذية التكميلية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 25,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "رعاية المولود حديث الولادة",
-        women: 0,
+        Subtopic: "سوء التغذية (سمنة - تقزم - نقص الوزن - انميا)",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 26,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "الرضاعة الطبيعية والتغذية التكميلية",
-        women: 0,
+        Subtopic: "أمراض الجهاز التنفسي",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 27,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "سوء التغذية (سمنة - تقزم - نقص الوزن - انميا)",
-        women: 0,
+        Subtopic: "الإسهال والجفاف",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 28,
         MainTopic: "بيان صحة الطفل",
-        Subtopic: "أمراض الجهاز التنفسي",
-        women: 0,
+        Subtopic: "التشجيع على الولادة الطبيعية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 29,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "الإسهال والجفاف",
-        women: 0,
+        MainTopic: "بيان الصحة العامة",
+        Subtopic: "السلامة المنزلية و الإسعافات الأولية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 30,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "التشجيع على الولادة الطبيعية",
-        women: 0,
+        MainTopic: "بيان الصحة العامة",
+        Subtopic: "الفحوص الطبية الروتينية والفحوص الدورية للسيدات",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 31,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "السلامة المنزلية",
-        women: 0,
+        Subtopic: "الصحة النفسية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 32,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "الإسعافات الاولية",
-        women: 0,
+        Subtopic: "رعاية المسنين",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 33,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "الفحوص الطبية الروتينية والفحوص الدورية للسيدات",
-        women: 0,
+        Subtopic: "رعاية ذوي الاحتياجات الخاصة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 34,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "الصحة النفسية",
-        women: 0,
+        Subtopic: "أهمية التبرع بالدم / التبرع بالبلازما",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 35,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية المسنين",
-        women: 0,
+        Subtopic: "الأمراض الجلدية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 36,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية ذوي الاحتياجات الخاصة",
-        women: 0,
+        Subtopic: "مشروبات الطاقة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 37,
         MainTopic: "بيان الصحة العامة",
-        Subtopic: "أهمية التبرع بالدم / التبرع بالبلازما",
-        women: 0,
+        Subtopic: "التوعية بالسعار (داء الكلب)",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 38,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الأمراض الجلدية",
-        women: 0,
+        MainTopic: "صحة البيئة",
+        Subtopic: "التغيرات المناخية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 39,
         MainTopic: "صحة البيئة",
-        Subtopic: "التغيرات المناخية",
-        women: 0,
+        Subtopic: "الحد من استخدام البلاستيك الأحادي",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 40,
         MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي",
-        women: 0,
+        Subtopic: "البيئة الصحية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 41,
-        MainTopic: "صحة البيئة",
-        Subtopic: "البيئة الصحية",
-        women: 0,
+        MainTopic: "مبادرات رئاسية وحملات توعية",
+        Subtopic: "دعم صحة المرأة المصرية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 42,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "القضاء على فيروس سي والكشف عن الأمراض المعدية غير السارية",
-        women: 0,
+        Subtopic: "دعم صحة الأم والجنين",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 43,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة المرأة المصرية",
-        women: 0,
+        Subtopic: "اكتشاف وعلاج ضعف وفقدان السمع للأطفال حديثي الولادة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 44,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة الأم والجنين",
-        women: 0,
+        Subtopic: "متابعة وعلاج الأمراض المزمنة والكشف المبكر عن الاعتلال الكلوي",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 45,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "اكتشاف وعلاج ضعف وفقدان السمع للأطفال حديثي الولادة",
-        women: 0,
+        Subtopic: "الكشف عن السمنة والأنميا والتقزم لطلاب المدارس الإبتدائية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 46,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "متابعة وعلاج الأمراض المزمنة والكشف المبكر عن الاعتلال الكلوي",
-        women: 0,
+        Subtopic: "الرعاية الصحية والنفسية المستمرة لكبار السن",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 47,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن السمنة والأنميا والتقزم لطلاب المدارس الإبتدائية",
-        women: 0,
+        Subtopic: "الكشف عن فيرس سي بين طلاب المدارس الإعدادية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "إنهاء قوائم الانتظار",
-        women: 0,
+        Subtopic: "مبادرة فحص المقبلين على الزواج",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 49,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الرعاية الصحية والنفسية المستمرة لكبار السن",
-        women: 0,
+        Subtopic: "مبادرة الكشف المبكر وعلاج الأورام السرطانية",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 50,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن فيرس سي بين طلاب المدارس الإعدادية",
-        women: 0,
+        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية )",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 51,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف المبكر عن الامراض الوراثية للأطفال حديثي الولادة",
-        women: 0,
+        Subtopic: "مبادرة كل ثانية حياة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
-
+        women: 0,
     },
     {
         id: 52,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "حياة كريمة",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 53,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مرضي ضمور العضلات",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 54,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة ايامنا أحلي (رفع الوعي الصحي للشرائح العمرية والمجتمعية المختلفة بأهمية تنظيم الإسرة)",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 55,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة المشروع القومي لتنمية الاسرة المصرية",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 56,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين على الزواج",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 57,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة الكشف المبكر وعلاج الأورام السرطانية",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 58,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة 100 يوم صحة",
+        Subtopic: "مبادرة صحتك سعادة",
+        in: false,
+        out: false,
         child: 0,
         men: 0,
         women: 0,
     },
-    {
-        id: 59,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية للتنمية البشرية(بداية)",
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 60,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية)",
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 61,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة كل ثانية حياة",
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 62,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "سمكة القراض (الأرنب)",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 63,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "جدري القرود",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 64,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "الفيروس التنفسي المخلوي",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 65,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "مشروبات الطاقة",
-        women: 0,
-        child: 0,
-        men: 0,
-
-    },
-    {
-        id: 66,
-        MainTopic: "موضوعات صحية مستحدثة / اخري",
-        Subtopic: "التوعية بالسعار(داء الكلب)",
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-];
+]
 
 var DoneAll = [];
 
@@ -1288,6 +1078,7 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
         return;
     }
 
+
     const reader = new FileReader();
     reader.onload = (event) => {
         const data = new Uint8Array(event.target.result);
@@ -1299,8 +1090,10 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
         // console.log(json)
         let testDate = [];
         json.forEach(row => {
+
             if (!isNaN(row["م"])) {
                 let topicInfoId = DataN.find((t) => t.Subtopic === row["الموضوع الفرعي"]);
+
                 if (topicInfoId) {
 
                     let [day, month, year] = row["التاريخ"].split("/");
@@ -1328,12 +1121,12 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
                 }
             }
         })
+        console.log(testDate.length);
         if (testDate.length > 0) {
             DoneAll = [...testDate];
             drowTopic(sortTopic(DoneAll));
         }
         // console.log(testDate)
-        delete testDate;
 
     };
     reader.readAsArrayBuffer(file);
@@ -2106,7 +1899,6 @@ generateMonthYear.addEventListener("click", () => {
 })
 
 function downloadTablesOfTopics() {
-
     let tables = document.querySelectorAll(".monthlyCon table")
     // tables.add(tobo);
 
@@ -2162,6 +1954,7 @@ function downloadTablesOfTopics() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+
 }
 
 function s2ab(s) {
