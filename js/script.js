@@ -472,7 +472,7 @@ const DataAD = [
     {
         id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين علي الزواج",
+        Subtopic: "مبادرة فحص المقبلين على الزواج",
         in: false,
         out: false,
         child: 0,
@@ -904,7 +904,7 @@ const DataN = [
     {
         id: 39,
         MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي الإستخدام",
+        Subtopic: "الحد من استخدام البلاستيك الأحادي",
         in: false,
         out: false,
         child: 0,
@@ -994,7 +994,7 @@ const DataN = [
     {
         id: 48,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين علي الزواج",
+        Subtopic: "مبادرة فحص المقبلين على الزواج",
         in: false,
         out: false,
         child: 0,
@@ -1089,7 +1089,6 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
         const json = XLSX.utils.sheet_to_json(sheet, { defval: null, raw: false, dateNF: 'yyyy-mm-dd' });
         // console.log(json)
         let testDate = [];
-        let counter = 0;
         json.forEach(row => {
             if (!isNaN(row["م"])) {
                 let topicInfoId = DataN.find((t) => t.Subtopic === row["الموضوع الفرعي"]);
@@ -1120,6 +1119,7 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
                 }
             }
         })
+
         if (testDate.length > 0) {
             DoneAll = [...testDate];
             drowTopic(sortTopic(DoneAll));
