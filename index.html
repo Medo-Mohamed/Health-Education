@@ -74,6 +74,7 @@
             <th style="width: 10%">أطفال</th>
             <th style="width: 10%">ذكور</th>
             <th style="width: 10%">إناث</th>
+            <th style="width: 10%">عدد الندوات</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -177,6 +178,67 @@
       </div>
 
       <hr>
+      <div class="campaign365Week">
+        <p class="m-2 fw-bold">حملة 365 يوم سلامة - حدد الأيام ونوع الندوة (داخلية / خارجية) :</p>
+        <div class="d-flex align-items-center justify-content-evenly flex-wrap">
+          <div class="dayInfo">
+            <label for="camp365Sat">السبت</label>
+            <input type="checkbox" id="camp365Sat" value="6">
+            <select id="camp365SatType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Sun">الأحد</label>
+            <input type="checkbox" id="camp365Sun" value="0">
+            <select id="camp365SunType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Mon">الأثنين</label>
+            <input type="checkbox" id="camp365Mon" value="1">
+            <select id="camp365MonType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Tue">الثلاثاء</label>
+            <input type="checkbox" id="camp365Tue" value="2">
+            <select id="camp365TueType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Wed">الأربعاء</label>
+            <input type="checkbox" id="camp365Wed" value="3">
+            <select id="camp365WedType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Thu">الخميس</label>
+            <input type="checkbox" id="camp365Thu" value="4">
+            <select id="camp365ThuType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+          <div class="dayInfo">
+            <label for="camp365Fri" class="text-danger">الجمعة</label>
+            <input type="checkbox" id="camp365Fri" value="5">
+            <select id="camp365FriType">
+              <option value="in">داخلية</option>
+              <option value="out">خارجية</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <button type="button" class="btn btn-primary mx-2 supDate"><i class="fa-solid fa-circle-check"></i>
         حفظ</button>
       <hr>
@@ -246,6 +308,7 @@
 
 
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/topics.js"></script>
   <script src="js/script.js"></script>
 </body>
 

@@ -1,1048 +1,3 @@
-const DataAD = [
-    {
-        id: 1,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "التغذية السليمة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 2,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النشاط البدنى وممارسة الرياضة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 3,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "مكافحة التدخين والإدمان",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 4,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "العمود الفقري وضعف الابصار",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 5,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النظافة الشخصية ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 6,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "صحة الفم والأسنان",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 7,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "تغذية ما قبل  وأثناء الحمل وبعد الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 8,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "إدمان الإنترنت والهواتف الذكية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 9,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "سوء استخدام المضادت الحيوية والعقاقير",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 10,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "أمراض القلب والأوعية الدموية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 11,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "داء السكري",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 12,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "ارتفاع ضغط الدم",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 13,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "الأورام",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 14,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "السمنة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 15,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الأمراض الطفيلية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 16,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الالتهاب الكبدي الفيروسي ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 17,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الانفلونزا الموسمية والمستجدة و الفيروس التنفسى المخلوى و كوفيد 19  - فيروس كورونا المستجد",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 18,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الدرن",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 19,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الأمراض المنقولة جنسيا والإيدز",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 20,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الحصبة والحصبة الالماني",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 21,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغذائي  والفحص السمعي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 22,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "البطاقة الصحة و تطعيمات الاطفال",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 23,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "رعاية المولود حديث الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 24,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "الرضاعة الطبيعية والتغذية التكميلية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 25,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "سوء التغذية ( سمنة - تقزم - نقص الوزن - انيميا )",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 26,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "أمراض الجهاز التنفسي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 27,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "الإسهال والجفاف",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 28,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "التشجيع على الولادة الطبيعية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 29,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "السلامة المنزلية و الإسعافات الأولية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 30,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الفحوص الطبية الروتينية والفحوص الدورية للسيدات",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 31,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الصحة النفسية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 32,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية المسنين",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 33,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية ذوي الاحتياجات الخاصة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 34,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "أهمية التبرع بالدم / التبرع بالبلازما",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 35,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الأمراض الجلدية ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 36,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "مشروبات الطاقة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 37,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "التوعية بالسعار (داء الكلب)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 38,
-        MainTopic: "صحة البيئة",
-        Subtopic: "التغيرات المناخية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 39,
-        MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي الإستخدام",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 40,
-        MainTopic: "صحة البيئة",
-        Subtopic: " البيئة الصحية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 41,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة المرأة المصرية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 42,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة الأم والجنين",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 43,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "اكتشاف وعلاج ضعف وفقدان السمع للأطفال حديثي الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 44,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "متابعة وعلاج الأمراض المزمنة والكشف المبكر عن الاعتلال الكلوي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 45,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن السمنة والأنيميا والتقزم لطلاب المدارس الإبتدائية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 46,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الرعاية الصحية والنفسية المستمرة لكبار السن",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 47,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن فيروس سي بين طلاب المدارس الإعدادية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 48,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين على الزواج",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 49,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة الكشف المبكر و علاج الأورام السرطانية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 50,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية )",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 51,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة كل ثانية حياة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 52,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة صحتك سعادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-];
-const DataN = [
-    {
-        id: 1,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "التغذية السليمة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 2,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النشاط البدنى وممارسة الرياضة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 3,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "مكافحة التدخين والإدمان",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 4,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "العمود الفقري وضعف الابصار",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 5,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "النظافة الشخصية ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 6,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "صحة الفم والأسنان",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 7,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "تغذية ما قبل  وأثناء الحمل وبعد الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 8,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "إدمان الإنترنت والهواتف الذكية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 9,
-        MainTopic: "بيان النمط السليم للحياة الصحية",
-        Subtopic: "سوء استخدام المضادت الحيوية والعقاقير",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 10,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "أمراض القلب والأوعية الدموية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 11,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "داء السكري",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 12,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "ارتفاع ضغط الدم",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 13,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "الأورام",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 14,
-        MainTopic: "بيان التوعية للوقاية والإكتشاف المبكر للأمراض غير المعدية",
-        Subtopic: "السمنة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 15,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الأمراض الطفيلية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 16,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الالتهاب الكبدي الفيروسي ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 17,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الانفلونزا الموسمية والمستجدة و الفيروس التنفسى المخلوى و كوفيد 19  - فيروس كورونا المستجد",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 18,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الدرن",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 19,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الأمراض المنقولة جنسيا والإيدز",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 20,
-        MainTopic: "بيان الوقاية من الامراض المعدية",
-        Subtopic: "الحصبة والحصبة الالماني",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 21,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "نقص هرمون الغدة الدرقية وامراض التمثيل الغذائي  والفحص السمعي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 22,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "البطاقة الصحة و تطعيمات الاطفال",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 23,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "رعاية المولود حديث الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 24,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "الرضاعة الطبيعية والتغذية التكميلية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 25,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "سوء التغذية ( سمنة - تقزم - نقص الوزن - انيميا )",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 26,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "أمراض الجهاز التنفسي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 27,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "الإسهال والجفاف",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 28,
-        MainTopic: "بيان صحة الطفل",
-        Subtopic: "التشجيع على الولادة الطبيعية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 29,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "السلامة المنزلية و الإسعافات الأولية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 30,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الفحوص الطبية الروتينية والفحوص الدورية للسيدات",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 31,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الصحة النفسية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 32,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية المسنين",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 33,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "رعاية ذوي الاحتياجات الخاصة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 34,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "أهمية التبرع بالدم / التبرع بالبلازما",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 35,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "الأمراض الجلدية ",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 36,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "مشروبات الطاقة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 37,
-        MainTopic: "بيان الصحة العامة",
-        Subtopic: "التوعية بالسعار (داء الكلب)",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 38,
-        MainTopic: "صحة البيئة",
-        Subtopic: "التغيرات المناخية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 39,
-        MainTopic: "صحة البيئة",
-        Subtopic: "الحد من استخدام البلاستيك الأحادي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 40,
-        MainTopic: "صحة البيئة",
-        Subtopic: " البيئة الصحية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 41,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة المرأة المصرية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 42,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "دعم صحة الأم والجنين",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 43,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "اكتشاف وعلاج ضعف وفقدان السمع للأطفال حديثي الولادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 44,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "متابعة وعلاج الأمراض المزمنة والكشف المبكر عن الاعتلال الكلوي",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 45,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن السمنة والأنيميا والتقزم لطلاب المدارس الإبتدائية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 46,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الرعاية الصحية والنفسية المستمرة لكبار السن",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 47,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "الكشف عن فيروس سي بين طلاب المدارس الإعدادية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 48,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة فحص المقبلين على الزواج",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 49,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة الكشف المبكر و علاج الأورام السرطانية",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 50,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة رئيس الجمهورية (الألف يوم الذهبية لتنمية الأسرة المصرية )",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 51,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة كل ثانية حياة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-    {
-        id: 52,
-        MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "مبادرة صحتك سعادة",
-        in: false,
-        out: false,
-        child: 0,
-        men: 0,
-        women: 0,
-    },
-];
-
 var DoneAll = [];
 
 var normal = document.getElementById("normal");
@@ -1067,7 +22,26 @@ advanced.addEventListener("click", function () {
 
     }
 })
+
+function generateLegacyId() {
+    const timestamp = Date.now().toString(36); 
+    // console.log(Date.now().toString(36))
+    const randomStr = Math.random().toString(36).substring(2, 8);
+    return `${timestamp}-${randomStr}`;
+}
+
 /////////////////////////////////////////
+function normalizeArabicText(text) {
+    if (!text) return "";
+    // Convert Arabic-Indic numerals (٠١٢٣٤٥٦٧٨٩) to Western numerals (0123456789)
+    let normalized = text.replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+    // Normalize Unicode (NFC form)
+    normalized = normalized.normalize("NFC");
+    // Trim and collapse multiple spaces into one
+    normalized = normalized.trim().replace(/\s+/g, ' ');
+    return normalized;
+}
+
 document.getElementById('excelFile').addEventListener('change', async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -1091,7 +65,8 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
         let testDate = [];
         json.forEach(row => {
             if (!isNaN(row["م"])) {
-                let topicInfoId = DataN.find((t) => t.Subtopic === row["الموضوع الفرعي"]);
+                let rowSubtopic = normalizeArabicText(row["الموضوع الفرعي"]);
+                let topicInfoId = DataAD.find((t) => normalizeArabicText(t.Subtopic) === rowSubtopic);
                 if (topicInfoId) {
 
                     let [day, month, year] = row["التاريخ"].split("/");
@@ -1111,10 +86,13 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
 
                         id: topicInfoId.id,
 
+                        uid:generateLegacyId() ,
+
                         in: row["خارجية"] === "داخلية",
                         out: row["خارجية"] === "خارجية",
                         counter: Number(row["م"]),
                         dayWeek: row["اليوم"],
+                        seminarCount: row["عدد الندوات"] ? Number(row["عدد الندوات"]) : 1,
                     });
                 }
             }
@@ -1155,7 +133,7 @@ window.onload = function () {
 
         if (ans) {
             DoneAll = JSON.parse(localStorage.getItem("saveDataForLate"));
-            console.log(DoneAll);
+            // console.log(DoneAll);
             // generateFunc();
             drowTopic(sortTopic(DoneAll));
         } else
@@ -1176,6 +154,7 @@ window.onload = function () {
             <td><input type="number" name="" id="${element.id}child"  class="numbIn" onblur="childNe(\`${element.id}child\`)"></td>
             <td><input type="number" name="" id="${element.id}man"  class="numbIn" onblur="manNe(\`${element.id}man\`)"></td>
             <td><input type="number" name="" id="${element.id}woman"  class="numbIn" onblur="womanNe(\`${element.id}woman\`)"></td>
+            <td><input type="number" name="" id="${element.id}seminar" class="numbIn" min="1" value="1" onblur="seminarNe(\`${element.id}seminar\`)"></td>
         </tr>
         `
     })
@@ -1208,6 +187,12 @@ function womanNe(e) {
 
     }
 }
+function seminarNe(e) {
+    let val = document.getElementById(e).value;
+    if (val) {
+        DataAD[parseInt(e) - 1].seminarCount = +(val);
+    }
+}
 //////////////////////////////////////////////////
 var child = 0, man = 0, woman = 0;
 var womenInput = document.getElementById("women");
@@ -1219,12 +204,12 @@ document.querySelector(".done").onclick = function () {
         child = +(childInput.value);
         man = +(menInput.value);
         woman = +(womenInput.value);
-        DataN.forEach(ele => {
+        DataAD.forEach(ele => {
             ele.child = child;
             ele.men = man;
             ele.women = woman;
         })
-        // console.log(DataN);
+        // console.log(DataAD);
         childInput.setAttribute("disabled", "");
         menInput.setAttribute("disabled", "");
         womenInput.setAttribute("disabled", "");
@@ -1239,9 +224,9 @@ document.querySelector(".reset").onclick = function () {
         document.getElementById("child").removeAttribute("disabled");
         document.getElementById("men").removeAttribute("disabled");
         document.getElementById("women").removeAttribute("disabled");
-        document.getElementById("child").value = "";
-        document.getElementById("men").value = "";
-        document.getElementById("women").value = "";
+        // document.getElementById("child").value = "";
+        // document.getElementById("men").value = "";
+        // document.getElementById("women").value = "";
         document.querySelector(".done").classList.remove("disabled");
         document.querySelector(".reset").classList.add("disabled");
     }
@@ -1252,7 +237,7 @@ function inCheck(n) {
     let test = document.getElementById(n);
     let num = parseInt(n);
     let botion = DataAD.findIndex(ele => ele.id === num);
-
+    // console.log(test.checked)
     if (test.checked) {
         test.parentElement.parentElement.classList.add("in");
         DataAD[botion].in = true;
@@ -1293,6 +278,7 @@ var daysCon = {
     out: [],
     bothINday: "",
 };
+var campaign365Days = {}; // {dayNumber: "in" or "out"}
 var startDateInput = document.getElementById("startDate");
 var endDateInput = document.getElementById("endDate");
 var startDate, endDate;
@@ -1300,6 +286,7 @@ startDate = new Date(startDateInput.value);
 endDate = new Date(endDateInput.value);
 var dataSelectIN = document.querySelectorAll("#dataSelect .inWeek .dayInfo");
 var dataSelectOUT = document.querySelectorAll("#dataSelect .outWeek .dayInfo");
+var dataSelectCampaign365 = document.querySelectorAll("#dataSelect .campaign365Week .dayInfo");
 var generate = document.querySelector(".generate");
 var bothINday = document.getElementById("bothINday");
 var supDate = document.querySelector(".supDate");
@@ -1311,6 +298,7 @@ supDate.onclick = () => {
         out: {},
         bothINday: "",
     };
+    campaign365Days = {};
     startDate = new Date(startDateInput.value);
     endDate = new Date(endDateInput.value);
 
@@ -1325,6 +313,15 @@ supDate.onclick = () => {
             daysCon.out[+(e.querySelector("input[type=checkbox]").value)] = +e.querySelector("input[type=number]").value;
         }
     })
+
+    // حفظ إعدادات حملة 365 يوم سلامة لكل يوم
+    dataSelectCampaign365.forEach((e) => {
+        if (e.querySelector("input[type=checkbox]").checked) {
+            let dayNum = +(e.querySelector("input[type=checkbox]").value);
+            let type = e.querySelector("select").value; // "in" or "out"
+            campaign365Days[dayNum] = type;
+        }
+    });
 
     generate.classList.remove("disabled");
 }
@@ -1348,13 +345,20 @@ function sortTopic(array) {
         }
         return a.day - b.day;
     });
-    array.forEach(element => {
+
+    array.forEach((element) => {
         if (x[`${element.month}-${element.year}`]) {
             x[`${element.month}-${element.year}`].push(element);
         } else
             x[`${element.month}-${element.year}`] = [element];
-
     });
+    let n =1;
+    // console.log(array)
+    array.forEach((e,i)=>{
+        // console.log(e)
+        if( array[i].month>1 && i>0 && array[i].month!=array[i-1].month){n=1;}
+        e.counter=n++
+    })
     return x;
 }
 
@@ -1373,6 +377,7 @@ function drowTopic(object) {
     <th>اطفال</th>
     <th>ذكور</th>
     <th>إناث</th>
+    <th>عدد الندوات</th>
     <th style ="width : 7%;">تعديل</th>
     <th style ="width : 7%;">حذف</th>
     </thead>
@@ -1383,10 +388,11 @@ function drowTopic(object) {
     Object.keys(object).forEach(ele => {
         let detti = ele.split("-");
         tbody.innerHTML += `<tr>
-        <td colspan="12" class="titelTopics fw-bolder">الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}</td>
+        <td colspan="13" class="titelTopics fw-bolder">الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}</td>
         </tr>
         `
         object[ele].forEach(i => {
+            // console.log(i)
             let formattedDate = i.day + "/" + i.month + "/" + i.year;
             tbody.innerHTML += `          
             <tr class = ${i.in ? "inter" : "outter"}>
@@ -1399,8 +405,9 @@ function drowTopic(object) {
             <td>${i.child}</td>
             <td>${i.men}</td>
             <td>${i.women}</td>
-            <td class ="${i.cahnged ? "retopict" : ""}"><i class="fa-solid fa-recycle reTopic" onclick = "reTopic(${i.counter})"></i></td>
-            <td><i class="fa-solid fa-trash-can deleteTopic" onclick = "deleteTopic(${i.counter})"></i></td>
+            <td>${i.seminarCount || 1}</td>
+            <td class ="${i.cahnged ? "retopict" : ""}"><i class="fa-solid fa-recycle reTopic" onclick = "reTopic(\'${i.uid}\')"></i></td>
+            <td><i class="fa-solid fa-trash-can deleteTopic" onclick = "deleteTopic(\'${i.uid}\')"></i></td>
             </tr>
             `
         })
@@ -1408,7 +415,7 @@ function drowTopic(object) {
     })
     tbody.innerHTML += `          
     <tr class = "NewTopicL" onclick = "AddNewTopic()">
-    <td colspan = "12"><i class="fa-solid fa-circle-plus"></i></td>
+    <td colspan = "13"><i class="fa-solid fa-circle-plus"></i></td>
     </tr>
     `;
     document.querySelector(".topicContan").style.display = "block";
@@ -1433,8 +440,8 @@ function generateFunc() {
     let helper = new Date(startDate);
     let especifcIN = DataAD.filter(ele => ele.in);
     let especifcOut = DataAD.filter(ele => ele.out);
-    var directDetiIn = (normal.classList.contains("disabled")) ? DataN : especifcIN;
-    var directDetiOut = (normal.classList.contains("disabled")) ? DataN : especifcOut;
+    var directDetiIn = (normal.classList.contains("disabled")) ? DataAD : especifcIN;
+    var directDetiOut = (normal.classList.contains("disabled")) ? DataAD : especifcOut;
     let maxRandomIn = directDetiIn.length;
     let maxRandomOut = directDetiOut.length;
     // console.log(directDetiIn);
@@ -1469,6 +476,8 @@ function generateFunc() {
                     out: false,
                     counter: counter,
                     dayWeek: daysOfWeek[startDate.getDay()],
+                    seminarCount: directDetiIn[randomNumber].seminarCount || 1,
+                    uid: generateLegacyId() 
                 }
                 DoneAll.push(newop);
                 counter++;
@@ -1493,11 +502,43 @@ function generateFunc() {
                     out: true,
                     counter: counter,
                     dayWeek: daysOfWeek[startDate.getDay()],
+                    seminarCount: directDetiOut[randomNumber].seminarCount || 1,
+                    uid: generateLegacyId() 
                 }
                 DoneAll.push(newop);
                 counter++;
             }
         }
+
+        // إضافة "حملة 365 يوم سلامة" حسب إعدادات كل يوم
+        let campaignType = campaign365Days[startDate.getDay()];
+        if (campaignType) {
+            let campaign365Data = DataAD.find(t => t.id === 53);
+            // أخذ قيم الأطفال والذكور والإناث من آخر ندوة تم إنشاؤها في نفس اليوم
+            let lastEntry = DoneAll[DoneAll.length - 1];
+            if (campaign365Data) {
+                var campaignEntry = {
+                    year: year,
+                    month: month,
+                    day: day,
+                    men: lastEntry ? lastEntry.men : 0,
+                    child: lastEntry ? lastEntry.child : 0,
+                    women: lastEntry ? lastEntry.women : 0,
+                    MainTopic: campaign365Data.MainTopic,
+                    Subtopic: campaign365Data.Subtopic,
+                    id: campaign365Data.id,
+                    in: campaignType === "in",
+                    out: campaignType === "out",
+                    counter: counter,
+                    dayWeek: daysOfWeek[startDate.getDay()],
+                    seminarCount: lastEntry ? (lastEntry.seminarCount || 1) : 1,
+                    uid :generateLegacyId() 
+                }
+                DoneAll.push(campaignEntry);
+                counter++;
+            }
+        }
+
         startDate.setDate(startDate.getDate() + 1); // يزيد التاريخ بيوم واحد
     }
 
@@ -1513,7 +554,8 @@ function generateFunc() {
 
 function deleteTopic(e) {
     // console.log(dataMontlyAll)
-    let ind = DoneAll.findIndex(ele => ele.counter == e);
+    // console.log(e)
+    let ind = DoneAll.findIndex(ele => ele.uid == e);
     DoneAll.splice(ind, 1);
     // console.log(DoneAll)
     drowTopic(sortTopic(DoneAll));
@@ -1523,7 +565,7 @@ var overLay = document.querySelector(".overLay");
 var Save_overLay = document.querySelector(".Save_overLay");
 var Close_overLay = document.querySelector(".Close_overLay");
 function reTopic(e) {
-    let ind = DoneAll.findIndex(ele => ele.counter == e);
+    let ind = DoneAll.findIndex(ele => ele.uid == e);
     let ele = DoneAll[ind];
     // console.log(DoneAll);
 
@@ -1533,7 +575,7 @@ function reTopic(e) {
     let endDetaLimit = `${endDate.getFullYear()}-${(endDate.getMonth() + 1) < 10 ? `0${(endDate.getMonth() + 1)}` : (endDate.getMonth() + 1)}-${(endDate.getDate()) < 10 ? `0${(endDate.getDate())}` : (endDate.getDate())}`;
     // console.log(oldDeta);
 
-    const uniqueSubtopics = [...new Set(DataN.map(item => item.MainTopic))];
+    const uniqueSubtopics = [...new Set(DataAD.map(item => item.MainTopic))];
     // console.log(uniqueSubtopics);
 
     overLay.innerHTML = "";
@@ -1552,6 +594,7 @@ function reTopic(e) {
       <div><p for="startDate" class="m-0">أطفال</p><input type="number" name="" id="childchange" min="0" max="1000" value ="${ele.child}"></div>
       <div><p for="startDate" class="m-0">ذكور</p><input type="number" name="" id="manchange" min="0" max="1000" value ="${ele.men}"></div>
       <div><p for="startDate" class="m-0">إناث</p><input type="number" name="" id="womanchange" min="0" max="1000" value ="${ele.women}"></div>
+      <div><p for="startDate" class="m-0">عدد الندوات</p><input type="number" name="" id="seminarCountChange" min="1" max="1000" value ="${ele.seminarCount || 1}"></div>
 
     </div>
     <div class="bottonssd d-flex justify-content-start ">
@@ -1577,7 +620,7 @@ function reTopic(e) {
 function supTop() {
     let SupTopicEsp = document.getElementById("SupTopicEsp")
     let NowOn = MainTopicEsp.value;
-    let Allsup = DataN.filter(e => e.MainTopic == NowOn)
+    let Allsup = DataAD.filter(e => e.MainTopic == NowOn)
     SupTopicEsp.innerHTML = '';
     Allsup.forEach(e => {
         SupTopicEsp.innerHTML += `<option value="${e.Subtopic}">${e.Subtopic}</option>`;
@@ -1621,10 +664,12 @@ function saveChangesLay(params) {
         let childchange = Number(document.getElementById("childchange").value);
         let manchange = Number(document.getElementById("manchange").value);
         let womanchange = Number(document.getElementById("womanchange").value);
+        let seminarCountChange = Number(document.getElementById("seminarCountChange").value) || 1;
         DoneAll[params].child = childchange;
         DoneAll[params].men = manchange;
         DoneAll[params].women = womanchange;
-        DoneAll[params].id = DataN.find(e => e.Subtopic == SupTopicSave.value).id;
+        DoneAll[params].seminarCount = seminarCountChange;
+        DoneAll[params].id = DataAD.find(e => e.Subtopic == SupTopicSave.value).id;
 
         drowTopic(sortTopic(DoneAll));
 
@@ -1639,18 +684,19 @@ function AddNewTopic() {
     // console.log(6);
     let startDetaLimit = `${startDate.getFullYear()}-${(startDate.getMonth() + 1) < 10 ? `0${(startDate.getMonth() + 1)}` : (startDate.getMonth() + 1)}-${(startDate.getDate()) < 10 ? `0${(startDate.getDate())}` : (startDate.getDate())}`;
     let endDetaLimit = `${endDate.getFullYear()}-${(endDate.getMonth() + 1) < 10 ? `0${(endDate.getMonth() + 1)}` : (endDate.getMonth() + 1)}-${(endDate.getDate()) < 10 ? `0${(endDate.getDate())}` : (endDate.getDate())}`;
-    let max = 0;
-    for (let i of DoneAll) {
-        if (i.counter > max) {
-            max = i.counter;
-        }
-    }
-    max++;
+    // let max = 0;
+    // // console.log(DoneAll);
+    // for (let i of DoneAll) {
+    //     if (i.counter > max) {
+    //         max = i.counter;
+    //     }
+    // }
+    // max++;
     overLay.innerHTML = "";
     overLay.innerHTML += `<div class="befor-element" onclick="closeLay()"></div>`;
     overLay.innerHTML += `
     <div class="inputs-contain">
-    <p class="fw-bold m-0">المسلسل :${max}</p>
+    <p class="fw-bold m-0">المسلسل :${0}</p>
     <div class="form1">
       <div><p for="startDate" class="m-0">التاريخ</p><input type="date" id="startDateTime" name="startDate"  max="${endDetaLimit}" min="${startDetaLimit}"></div>
       <div><p for="startDate" class="m-0">الموضوع الرئيسي</p><select name="" id="MainTopicEsp" onchange = "supTop()"><option></option></select></div>
@@ -1663,25 +709,28 @@ function AddNewTopic() {
       <div><p for="startDate" class="m-0">أطفال</p><input type="number" name="" id="childchange" min="0" max="1000" ></div>
       <div><p for="startDate" class="m-0">ذكور</p><input type="number" name="" id="manchange" min="0" max="1000" ></div>
       <div><p for="startDate" class="m-0">إناث</p><input type="number" name="" id="womanchange" min="0" max="1000" ></div>
+      <div><p for="startDate" class="m-0">عدد الندوات</p><input type="number" name="" id="seminarCountChange" min="1" max="1000" value="1"></div>
 
     </div>
     <div class="bottonssd d-flex justify-content-start ">
-      <button type="button" class="btn btn-primary mx-2 Save_overLay"onclick = "acceptNewTopic(${max})">حفظ</button>
+      <button type="button" class="btn btn-primary mx-2 Save_overLay"onclick = "acceptNewTopic()">حفظ</button>
       <button type="button" class="btn btn-danger mx-2 Close_overLay" onclick = "closeLay()">اغلاق</button>
     </div>
     </div>
   `;
-    const uniqueSubtopics = [...new Set(DataN.map(item => item.MainTopic))];
+    const uniqueSubtopics = [...new Set(DataAD.map(item => item.MainTopic))];
     var MainTopicEsp = document.getElementById("MainTopicEsp");
     MainTopicEsp.innerHTML = `<option value="" hidden></option>`;
+    // console.log(uniqueSubtopics)
     uniqueSubtopics.forEach(e => {
         MainTopicEsp.innerHTML += `<option value="${e}">${e}</option>`;
     })
+    // console.log(uniqueSubtopics)
 
     overLay.style.display = "block";
 }
 
-function acceptNewTopic(params) {
+function acceptNewTopic() {
 
     let dateN = new Date(document.getElementById("startDateTime").value);
     let day = dateN.getDate();
@@ -1706,6 +755,7 @@ function acceptNewTopic(params) {
 
     if (dayWeaka && MainTopicEsp && SupTopicSave && INoutCONDETION) {
         let eleM = DataAD.find(e => e.MainTopic == MainTopicEsp && e.Subtopic == SupTopicSave);
+        let seminarCountNew = Number(document.getElementById("seminarCountChange").value) || 1;
         var newop = {
             year: year,
             month: month,
@@ -1718,8 +768,10 @@ function acceptNewTopic(params) {
             id: eleM.id,
             // in: false,
             // out: true,
-            counter: params,
+            uid: generateLegacyId() ,
+            counter: 0,
             dayWeek: dayWeaka,
+            seminarCount: seminarCountNew,
         }
         if (INoutCONDETION == "داخلية") {
             newop.in = true;
@@ -1801,15 +853,16 @@ generateMonthYear.addEventListener("click", () => {
         var BodyMonthly = document.querySelectorAll(".monthly tbody");
         BodyMonthly = BodyMonthly[BodyMonthly.length - 1];
         //   BodyMonthly.innerHTML = "";
-        DataN.forEach(e => {
+        DataAD.forEach(e => {
             let filIt = item.filter(z => e.id == z.id);
             let mmm = 0, chhhh = 0, woooom = 0, inTopic = 0, outTopic = 0;
             for (let i of filIt) {
+                let sc = i.seminarCount || 1;
                 mmm += +(i.men);
                 chhhh += +(i.child);
                 woooom += +(i.women);
-                inTopic += i.in ? 1 : 0;
-                outTopic += i.out ? 1 : 0;
+                inTopic += i.in ? sc : 0;
+                outTopic += i.out ? sc : 0;
             }
 
             // console.log(mmm, chhhh, woooom, inTopic, outTopic);
@@ -1864,15 +917,16 @@ generateMonthYear.addEventListener("click", () => {
   </table>
   `;
     var boold = document.querySelector(".yearly tbody");
-    DataN.forEach(element => {
+    DataAD.forEach(element => {
         var manscount = 0, childcount = 0, womencount = 0, intpcoun = 0, outtpcoun = 0;
         for (let i of DoneAll) {
             if (i.id == element.id) {
+                let sc = i.seminarCount || 1;
                 manscount += +(i.men);
                 childcount += +(i.child);
                 womencount += +(i.women);
-                intpcoun += i.in ? 1 : 0;
-                outtpcoun += i.out ? 1 : 0;
+                intpcoun += i.in ? sc : 0;
+                outtpcoun += i.out ? sc : 0;
             }
         }
         boold.innerHTML += `
