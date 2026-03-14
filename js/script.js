@@ -199,7 +199,17 @@ var womenInput = document.getElementById("women");
 var menInput = document.getElementById("men")
 var childInput = document.getElementById("child");
 
+function isFloat(i){
+    return i%1!==0
+}
+
 document.querySelector(".done").onclick = function () {
+    // console.log("here")
+        if((childInput.value==0 && menInput.value==0 &&womenInput.value==0) || 
+        (childInput.value <0 || isFloat(childInput.value) || menInput.value<0 || isFloat(menInput.value) || womenInput.value<0 || isFloat(womenInput.value)) ){
+            alert("لا يمكن ان تكون جميع قيم الاطفال والذكور والاناث فارغة او اصفار او سالبة او عشرية");
+            return 0;
+        }
     if (!(document.querySelector(".done").classList.contains("disabled"))) {
         child = +(childInput.value);
         man = +(menInput.value);
@@ -479,6 +489,7 @@ function generateFunc() {
                     seminarCount: directDetiIn[randomNumber].seminarCount || 1,
                     uid: generateLegacyId() 
                 }
+
                 DoneAll.push(newop);
                 counter++;
             }
@@ -628,10 +639,13 @@ function supTop() {
     SupTopicEsp.value = "";
 }
 // console.log(Close_overLay)
+
+
+
 function saveChangesLay(params) {
     // console.log(params)
     // console.log(DoneAll)
-    let realIndex = DoneAll.findIndex(ele => ele.counter == params);
+    // let realIndex = DoneAll.findIndex(ele => ele.counter == params);
     let SupTopicSave = document.getElementById("SupTopicEsp");
     if (SupTopicSave.value) {
         let dateTime = new Date(document.getElementById("startDateTime").value);
@@ -665,6 +679,14 @@ function saveChangesLay(params) {
         let manchange = Number(document.getElementById("manchange").value);
         let womanchange = Number(document.getElementById("womanchange").value);
         let seminarCountChange = Number(document.getElementById("seminarCountChange").value) || 1;
+        if(childchange <0 || isFloat(childchange) || manchange<0 || isFloat(manchange) || womanchange<0 || isFloat(womanchange) || seminarCountChange<1 || isFloat(seminarCountChange) ){
+            alert("لا يمكن إدخال كسور أو قيم سالبة");
+            return 0;
+        }
+        if(childchange ==0  && manchange==0 && womanchange==0 ){
+            alert("لا يمكن ان تكون كل القيم بأصفار");
+            return 0;
+        }
         DoneAll[params].child = childchange;
         DoneAll[params].men = manchange;
         DoneAll[params].women = womanchange;
