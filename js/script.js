@@ -60,43 +60,66 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
             type: 'array', cellDates: true, cellText: false, cellNF: true
         });
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const json = XLSX.utils.sheet_to_json(sheet, { defval: null, raw: false, dateNF: 'yyyy-mm-dd' });
-        // console.log(json)
+        const jsonAoa = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null, raw: false, dateNF: 'yyyy-mm-dd' });
+        
+        // Find the actual header row
+        let headerRowIndex = jsonAoa.findIndex(row => row && row.includes("م") && row.includes("الموضوع الفرعي"));
+        if (headerRowIndex === -1) {
+            alert('لم يتم العثور على رؤوس الجدول (مثل: م، الموضوع الفرعي) في الملف.');
+            return;
+        }
+
+        let headers = jsonAoa[headerRowIndex];
         let testDate = [];
-        json.forEach(row => {
-            if (!isNaN(row["م"])) {
-                let rowSubtopic = normalizeArabicText(row["الموضوع الفرعي"]);
+
+        for (let r = headerRowIndex + 1; r < jsonAoa.length; r++) {
+            let rowData = jsonAoa[r];
+            if (!rowData || rowData.length === 0) continue;
+            
+            let rowObj = {};
+            headers.forEach((h, i) => {
+                rowObj[h] = rowData[i];
+            });
+
+            if (!isNaN(rowObj["م"]) && rowObj["م"] !== "" && rowObj["م"] != null) {
+                if(!rowObj["التاريخ"]) continue;
+                
+                let rowSubtopic = normalizeArabicText(rowObj["الموضوع الفرعي"]);
                 let topicInfoId = DataAD.find((t) => normalizeArabicText(t.Subtopic) === rowSubtopic);
                 if (topicInfoId) {
 
-                    let [day, month, year] = row["التاريخ"].split("/");
+                    let [day, month, year] = String(rowObj["التاريخ"]).split("/");
                     year = Number(year) < 2000 ? Number(year) + 2000 : Number(year);
+
+                    let typeValue = rowObj["خارجية / داخلية"] || rowObj["خارجية"] || "";
+                    let isInternal = String(typeValue).includes("داخلي");
+                    let isExternal = String(typeValue).includes("خارجي");
 
                     testDate.push({
                         year: year,
                         month: Number(month),
                         day: Number(day),
 
-                        men: Number(row["ذكور"]),
-                        child: Number(row["اطفال"]),
-                        women: Number(row["إناث"]),
+                        men: Number(rowObj["ذكور"] || 0),
+                        child: Number(rowObj["اطفال"] || 0),
+                        women: Number(rowObj["إناث"] || 0),
 
-                        MainTopic: row["الموضوع الرئيسي"],
-                        Subtopic: row["الموضوع الفرعي"],
+                        MainTopic: rowObj["الموضوع الرئيسي"],
+                        Subtopic: rowObj["الموضوع الفرعي"],
 
                         id: topicInfoId.id,
 
                         uid: generateLegacyId(),
 
-                        in: row["خارجية"] === "داخلية",
-                        out: row["خارجية"] === "خارجية",
-                        counter: Number(row["م"]),
-                        dayWeek: row["اليوم"],
-                        seminarCount: row["عدد الندوات"] ? Number(row["عدد الندوات"]) : 1,
+                        in: isInternal,
+                        out: isExternal,
+                        counter: Number(rowObj["م"]),
+                        dayWeek: rowObj["اليوم"],
+                        seminarCount: rowObj["عدد الندوات"] ? Number(rowObj["عدد الندوات"]) : 1,
                     });
                 }
             }
-        })
+        }
 
         if (testDate.length > 0) {
             DoneAll = [...testDate];
@@ -323,38 +346,38 @@ supDate.onclick = () => {
         }
     })
 
-   
+
     let hasValidationError = false;
     document.querySelectorAll(".recurring-topic-item").forEach(item => {
-        if(hasValidationError) return;
-        
+        if (hasValidationError) return;
+
         let mainTopic = item.querySelector(".r-main-topic").value;
         let subTopic = item.querySelector(".r-sub-topic").value;
         if (!mainTopic || !subTopic) return;
-        
+
         let type = item.querySelector(".r-type").value;
         let countInput = item.querySelector(".r-count").value;
         let childInput = item.querySelector(".r-child").value;
         let manInput = item.querySelector(".r-man").value;
         let womanInput = item.querySelector(".r-woman").value;
-        
-        if((childInput == 0 && manInput == 0 && womanInput == 0) || 
-           (childInput < 0 || isFloat(childInput) || manInput < 0 || isFloat(manInput) || womanInput < 0 || isFloat(womanInput) || countInput < 1 || isFloat(countInput))) {
+
+        if ((childInput == 0 && manInput == 0 && womanInput == 0) ||
+            (childInput < 0 || isFloat(childInput) || manInput < 0 || isFloat(manInput) || womanInput < 0 || isFloat(womanInput) || countInput < 1 || isFloat(countInput))) {
             alert("في المواضيع المتكررة: لا يمكن ان تكون جميع قيم الاطفال والذكور والاناث فارغة او اصفار او سالبة او عشرية");
             hasValidationError = true;
             return;
         }
-        
+
         let count = Number(countInput) || 1;
         let child = Number(childInput) || 0;
         let man = Number(manInput) || 0;
         let woman = Number(womanInput) || 0;
-        
+
         let days = [];
         item.querySelectorAll(".r-day:checked").forEach(cb => {
             days.push(Number(cb.value));
         });
-        
+
         if (days.length > 0) {
             let topicData = DataAD.find(e => e.Subtopic === subTopic && e.MainTopic === mainTopic);
             if (topicData) {
@@ -373,7 +396,7 @@ supDate.onclick = () => {
         }
     });
 
-    if(hasValidationError) {
+    if (hasValidationError) {
         customRecurringTopics = [];
         return;
     }
@@ -652,7 +675,7 @@ function generateFunc() {
             }
         }
 
-        
+
         let currentDayNum = startDate.getDay();
         customRecurringTopics.forEach(rt => {
             if (rt.days.includes(currentDayNum)) {
@@ -678,7 +701,7 @@ function generateFunc() {
             }
         });
 
-        startDate.setDate(startDate.getDate() + 1); 
+        startDate.setDate(startDate.getDate() + 1);
     }
 
     // console.log(sortTopic(DoneAll));
@@ -1125,54 +1148,127 @@ generateMonthYear.addEventListener("click", () => {
 })
 
 function downloadTablesOfTopics() {
-    let tables = document.querySelectorAll(".monthlyCon table")
-    // tables.add(tobo);
-
     var workbook = XLSX.utils.book_new();
+    const dataMontlyAll = sortTopic(DoneAll);
+    
+    const headers = [
+        "الادارة / الوحدة", "الربع", "الموضوع الرئيسي", "الموضوع الفرعي", "ندوة داخلية", "مشورة عامة", 
+        "ندوة خارجية", "لقاء جماهيري", "ندوات قوافل", "اطفال", "ذكور", "إناث", "إستخدام وسائل إعلامية", 
+        "انشطة اعلامية رقمية", "ملاحظات"
+    ];
 
-    tables.forEach((table, index) => {
-        var worksheet = XLSX.utils.table_to_sheet(table);
+    function createSheetAoa(dataItems, quarterName = "") {
+        let aoa = [];
+        
+        let r0 = Array(15).fill("");
+        r0[4] = "نموذج الخطة الربع سنوي"; 
+        aoa.push(r0);
+        
+        let r1 = Array(15).fill("");
+        r1[0] = "الربع";
+        r1[4] = "عدد السكان";
+        aoa.push(r1);
+        
+        let r2 = Array(15).fill("");
+        r2[0] = "الادارة";
+        r2[4] = "عدد المثقفين المتفرغين";
+        aoa.push(r2);
+        
+        let r3 = Array(15).fill("");
+        r3[4] = "إجمالي عدد المثقفين";
+        aoa.push(r3);
+        
+        aoa.push(Array(15).fill(""));
+        aoa.push([...headers]);
+        
+        DataAD.forEach(element => {
+            let manscount = 0, childcount = 0, womencount = 0, intpcoun = 0, outtpcoun = 0;
+            let itemsWithTopic = dataItems.filter(i => i.id == element.id);
+            if(itemsWithTopic.length > 0) {
+                for (let i of itemsWithTopic) {
+                    let sc = i.seminarCount || 1;
+                    manscount += +(i.men);
+                    childcount += +(i.child);
+                    womencount += +(i.women);
+                    intpcoun += i.in ? sc : 0;
+                    outtpcoun += i.out ? sc : 0;
+                }
+                
+                aoa.push([
+                    "", quarterName, element.MainTopic, element.Subtopic,
+                    intpcoun ? intpcoun : "", "", outtpcoun ? outtpcoun : "", "", "",
+                    (childcount || manscount || womencount) ? childcount : "",
+                    (childcount || manscount || womencount) ? manscount : "",
+                    (childcount || manscount || womencount) ? womencount : "",
+                    "", "", ""
+                ]);
+            } else {
+                aoa.push([
+                    "", quarterName, element.MainTopic, element.Subtopic,
+                    "", "", "", "", "", "", "", "", "", "", ""
+                ]);
+            }
+        });
+        
+        return aoa;
+    }
 
-        worksheet['!margins'] = { RTL: true };
-
-        for (let cell in worksheet) {
-            if (worksheet.hasOwnProperty(cell) && cell[0] !== '!') {
-                worksheet[cell].s = {
-                    alignment: {
-                        vertical: 'center',
-                        horizontal: 'center'
-                    }
+    function formatPlanWorksheet(ws, mergesArray = []) {
+        ws['!margins'] = { RTL: true };
+        if(mergesArray.length > 0) ws['!merges'] = mergesArray;
+        for (let cell in ws) {
+            if (ws.hasOwnProperty(cell) && cell[0] !== '!') {
+                ws[cell].s = {
+                    alignment: { vertical: 'center', horizontal: 'center', wrapText: true },
+                    font: { sz: 12 }
                 };
             }
         }
+        ws['!cols'] = [
+            { wpx: 80 },  // الادارة / الوحدة
+            { wpx: 50 },  // الربع
+            { wpx: 200 }, // الموضوع الرئيسي
+            { wpx: 200 }, // الموضوع الفرعي
+            { wpx: 130 }, // ندوة داخلية (Also population inputs)
+            { wpx: 60 },  // مشورة عامة
+            { wpx: 60 },  // ندوة خارجية
+            { wpx: 60 },  // لقاء جماهيري
+            { wpx: 60 },  // ندوات قوافل
+            { wpx: 50 },  // اطفال
+            { wpx: 50 },  // ذكور
+            { wpx: 50 },  // إناث
+            { wpx: 100 }, // إستخدام وسائل إعلامية
+            { wpx: 120 }, // انشطة اعلامية رقمية
+            { wpx: 150 }  // ملاحظات
+        ];
+    }
+    
+    let baseMerges = [
+        { s: { r: 0, c: 4 }, e: { r: 0, c: 9 } }, // Title
+        { s: { r: 1, c: 1 }, e: { r: 1, c: 3 } }, // Quarter input
+        { s: { r: 2, c: 1 }, e: { r: 2, c: 3 } }, // Administration input
+        { s: { r: 1, c: 5 }, e: { r: 1, c: 6 } }, // Population input
+        { s: { r: 2, c: 5 }, e: { r: 2, c: 6 } }, // Educators input
+        { s: { r: 3, c: 5 }, e: { r: 3, c: 6 } }  // Total input
+    ];
 
-        let range = XLSX.utils.decode_range(worksheet['!ref']);
-        worksheet['!cols'] = [];
-        for (let C = range.s.c; C <= range.e.c; ++C) {
-            let maxWidth = 10;
-            for (let R = range.s.r; R <= range.e.r; ++R) {
-                let cell_address = { c: C, r: R };
-                let cell_ref = XLSX.utils.encode_cell(cell_address);
-                let cell = worksheet[cell_ref];
-                if (cell && cell.v) {
-                    let cellValue = cell.v.toString();
-                    maxWidth = Math.max(maxWidth, cellValue.length);
-                }
-            }
-            worksheet['!cols'][C] = { width: maxWidth };
-        }
+    let aoaCombined = createSheetAoa(DoneAll, "");
+    var wsCombined = XLSX.utils.aoa_to_sheet(aoaCombined);
+    formatPlanWorksheet(wsCombined, baseMerges);
+    XLSX.utils.book_append_sheet(workbook, wsCombined, "الخطة المجمعة");
 
-        XLSX.utils.book_append_sheet(workbook, worksheet, table.getAttribute("value"));
+    Object.keys(dataMontlyAll).forEach(ele => {
+        let detti = ele.split("-");
+        let monthName = `شهر ${detti[0]}`;
+        let aoaMonth = createSheetAoa(dataMontlyAll[ele], monthName);
+        var wsMonth = XLSX.utils.aoa_to_sheet(aoaMonth);
+        formatPlanWorksheet(wsMonth, baseMerges);
+        XLSX.utils.book_append_sheet(workbook, wsMonth, monthName);
     });
 
-    workbook.Workbook = {
-        Views: [{ RTL: true }]
-    };
-
+    workbook.Workbook = { Views: [{ RTL: true }] };
     var excelFile = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
-
     var blob = new Blob([s2ab(excelFile)], { type: "application/octet-stream" });
-
     var url = URL.createObjectURL(blob);
     var a = document.createElement("a");
     a.href = url;
@@ -1180,7 +1276,6 @@ function downloadTablesOfTopics() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-
 }
 
 function s2ab(s) {
@@ -1192,37 +1287,123 @@ function s2ab(s) {
 
 function downloadTableOfDetails() {
     var workbook = XLSX.utils.book_new();
-    var worksheet = XLSX.utils.table_to_sheet(tobo);
-    worksheet['!margins'] = { RTL: true };
-    for (let cell in worksheet) {
-        if (worksheet.hasOwnProperty(cell) && cell[0] !== '!') {
-            worksheet[cell].s = {
-                alignment: {
-                    vertical: 'center',
-                    horizontal: 'center'
-                }
-            };
-        }
-    }
-    let range = XLSX.utils.decode_range(worksheet['!ref']);
-    worksheet['!cols'] = [];
-    for (let C = range.s.c; C <= range.e.c; ++C) {
-        let maxWidth = 10;
-        for (let R = range.s.r; R <= range.e.r; ++R) {
-            let cell_address = { c: C, r: R };
-            let cell_ref = XLSX.utils.encode_cell(cell_address);
-            let cell = worksheet[cell_ref];
-            if (cell && cell.v) {
-                let cellValue = cell.v.toString();
-                maxWidth = Math.max(maxWidth, cellValue.length);
+    const dataMontlyAll = sortTopic(DoneAll);
+    const headers = ["م", "اليوم", "التاريخ", "الموضوع الرئيسي", "الموضوع الفرعي", "خارجية / داخلية", "اطفال", "ذكور", "إناث", "عدد الندوات"];
+
+    // First: Create Combined Sheet
+    let aoaAll = [];
+    let mergesAll = [];
+    let currentRowAll = 0;
+
+    Object.keys(dataMontlyAll).forEach(ele => {
+        let detti = ele.split("-");
+        let titleText = `الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}`;
+
+        let titleRow = [titleText];
+        for (let j = 1; j < 10; j++) titleRow.push("");
+        aoaAll.push(titleRow);
+
+        mergesAll.push({ s: { r: currentRowAll, c: 0 }, e: { r: currentRowAll, c: 9 } });
+        currentRowAll++;
+
+        aoaAll.push([...headers]);
+        currentRowAll++;
+
+        dataMontlyAll[ele].forEach(i => {
+            let typeStr = i.in ? "داخلية" : (i.out ? "خارجية" : "");
+            if (i.in && i.out) typeStr = "داخلية / خارجية";
+
+            aoaAll.push([
+                i.counter,
+                i.dayWeek,
+                `${i.day}/${i.month}/${i.year}`,
+                i.MainTopic,
+                i.Subtopic,
+                typeStr,
+                i.child,
+                i.men,
+                i.women,
+                i.seminarCount || 1
+            ]);
+            currentRowAll++;
+        });
+
+        aoaAll.push([]);
+        currentRowAll++;
+    });
+
+    function formatWorksheet(ws, mergesArray = []) {
+        ws['!margins'] = { RTL: true };
+        if (mergesArray.length > 0) ws['!merges'] = mergesArray;
+        for (let cell in ws) {
+            if (ws.hasOwnProperty(cell) && cell[0] !== '!') {
+                ws[cell].s = {
+                    alignment: {
+                        vertical: 'center',
+                        horizontal: 'center'
+                    }
+                };
             }
         }
-        worksheet['!cols'][C] = { width: maxWidth };
+        let range = XLSX.utils.decode_range(ws['!ref'] || "A1:J1");
+        ws['!cols'] = [];
+        for (let C = range.s.c; C <= range.e.c; ++C) {
+            let maxWidth = 10;
+            for (let R = range.s.r; R <= range.e.r; ++R) {
+                let cell_address = { c: C, r: R };
+                let cell_ref = XLSX.utils.encode_cell(cell_address);
+                let cell = ws[cell_ref];
+                if (cell && cell.v) {
+                    let cellValue = cell.v.toString();
+                    maxWidth = Math.max(maxWidth, cellValue.length);
+                }
+            }
+            ws['!cols'][C] = { width: maxWidth + 2 };
+        }
     }
-    XLSX.utils.book_append_sheet(workbook, worksheet, "الموضوعات اليومية");
-    workbook.Workbook = {
-        Views: [{ RTL: true }]
-    };
+
+    if (aoaAll.length > 0) {
+        var wsAll = XLSX.utils.aoa_to_sheet(aoaAll);
+        formatWorksheet(wsAll, mergesAll);
+        XLSX.utils.book_append_sheet(workbook, wsAll, "كل الأشهر");
+    }
+
+    // Next: Create individual sheets per month
+    Object.keys(dataMontlyAll).forEach(ele => {
+        let detti = ele.split("-");
+        let titleText = `الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}`;
+
+        let aoaMonth = [];
+        let titleRow = [titleText];
+        for (let j = 1; j < 10; j++) titleRow.push("");
+
+        aoaMonth.push(titleRow);
+        aoaMonth.push([...headers]);
+
+        dataMontlyAll[ele].forEach(i => {
+            let typeStr = i.in ? "داخلية" : (i.out ? "خارجية" : "");
+            if (i.in && i.out) typeStr = "داخلية / خارجية";
+
+            aoaMonth.push([
+                i.counter,
+                i.dayWeek,
+                `${i.day}/${i.month}/${i.year}`,
+                i.MainTopic,
+                i.Subtopic,
+                typeStr,
+                i.child,
+                i.men,
+                i.women,
+                i.seminarCount || 1
+            ]);
+        });
+
+        let wsMonth = XLSX.utils.aoa_to_sheet(aoaMonth);
+        formatWorksheet(wsMonth, [{ s: { r: 0, c: 0 }, e: { r: 0, c: 9 } }]);
+        XLSX.utils.book_append_sheet(workbook, wsMonth, `شهر ${detti[0]}`);
+    });
+
+    workbook.Workbook = { Views: [{ RTL: true }] };
     var excelFile = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
     var blob = new Blob([s2ab(excelFile)], { type: "application/octet-stream" });
     var url = URL.createObjectURL(blob);
