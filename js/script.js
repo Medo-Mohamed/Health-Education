@@ -288,7 +288,7 @@ var daysCon = {
     out: [],
     bothINday: "",
 };
-var campaign365Days = {}; // {dayNumber: "in" or "out"}
+var customRecurringTopics = []; // instead of campaign365Days
 var startDateInput = document.getElementById("startDate");
 var endDateInput = document.getElementById("endDate");
 var startDate, endDate;
@@ -296,7 +296,6 @@ startDate = new Date(startDateInput.value);
 endDate = new Date(endDateInput.value);
 var dataSelectIN = document.querySelectorAll("#dataSelect .inWeek .dayInfo");
 var dataSelectOUT = document.querySelectorAll("#dataSelect .outWeek .dayInfo");
-var dataSelectCampaign365 = document.querySelectorAll("#dataSelect .campaign365Week .dayInfo");
 var generate = document.querySelector(".generate");
 var bothINday = document.getElementById("bothINday");
 var supDate = document.querySelector(".supDate");
@@ -308,7 +307,7 @@ supDate.onclick = () => {
         out: {},
         bothINday: "",
     };
-    campaign365Days = {};
+    customRecurringTopics = [];
     startDate = new Date(startDateInput.value);
     endDate = new Date(endDateInput.value);
 
@@ -324,14 +323,60 @@ supDate.onclick = () => {
         }
     })
 
-    // حفظ إعدادات حملة 365 يوم سلامة لكل يوم
-    dataSelectCampaign365.forEach((e) => {
-        if (e.querySelector("input[type=checkbox]").checked) {
-            let dayNum = +(e.querySelector("input[type=checkbox]").value);
-            let type = e.querySelector("select").value; // "in" or "out"
-            campaign365Days[dayNum] = type;
+   
+    let hasValidationError = false;
+    document.querySelectorAll(".recurring-topic-item").forEach(item => {
+        if(hasValidationError) return;
+        
+        let mainTopic = item.querySelector(".r-main-topic").value;
+        let subTopic = item.querySelector(".r-sub-topic").value;
+        if (!mainTopic || !subTopic) return;
+        
+        let type = item.querySelector(".r-type").value;
+        let countInput = item.querySelector(".r-count").value;
+        let childInput = item.querySelector(".r-child").value;
+        let manInput = item.querySelector(".r-man").value;
+        let womanInput = item.querySelector(".r-woman").value;
+        
+        if((childInput == 0 && manInput == 0 && womanInput == 0) || 
+           (childInput < 0 || isFloat(childInput) || manInput < 0 || isFloat(manInput) || womanInput < 0 || isFloat(womanInput) || countInput < 1 || isFloat(countInput))) {
+            alert("في المواضيع المتكررة: لا يمكن ان تكون جميع قيم الاطفال والذكور والاناث فارغة او اصفار او سالبة او عشرية");
+            hasValidationError = true;
+            return;
+        }
+        
+        let count = Number(countInput) || 1;
+        let child = Number(childInput) || 0;
+        let man = Number(manInput) || 0;
+        let woman = Number(womanInput) || 0;
+        
+        let days = [];
+        item.querySelectorAll(".r-day:checked").forEach(cb => {
+            days.push(Number(cb.value));
+        });
+        
+        if (days.length > 0) {
+            let topicData = DataAD.find(e => e.Subtopic === subTopic && e.MainTopic === mainTopic);
+            if (topicData) {
+                customRecurringTopics.push({
+                    id: topicData.id,
+                    MainTopic: topicData.MainTopic,
+                    Subtopic: topicData.Subtopic,
+                    type: type,
+                    seminarCount: count,
+                    child: child,
+                    men: man,
+                    women: woman,
+                    days: days
+                });
+            }
         }
     });
+
+    if(hasValidationError) {
+        customRecurringTopics = [];
+        return;
+    }
 
     generate.classList.remove("disabled");
 }
@@ -438,6 +483,78 @@ function drowTopic(object) {
 
 
 
+function addRecurringTopicField() {
+    const uniqueMainTopics = [...new Set(DataAD.map(item => item.MainTopic))];
+    let mainOptions = '<option value="" hidden></option>';
+    uniqueMainTopics.forEach(e => {
+        mainOptions += `<option value="${e}">${e}</option>`;
+    });
+
+    const container = document.getElementById("recurringTopicsContainer");
+    const div = document.createElement("div");
+    div.className = "recurring-topic-item border border-2 border-primary p-3 rounded mb-3 bg-light";
+    div.innerHTML = `
+      <div class="d-flex gap-3 flex-wrap mb-3 recurring-inputs">
+        <div style="flex: 1; min-width: 150px;">
+          <label class="fw-bold mb-1">الموضوع الرئيسي</label>
+          <select class="form-select r-main-topic" onchange="updateRecurringSubTopics(this)">${mainOptions}</select>
+        </div>
+        <div style="flex: 1; min-width: 150px;">
+          <label class="fw-bold mb-1">الموضوع الفرعي</label>
+          <select class="form-select r-sub-topic"><option value="" hidden></option></select>
+        </div>
+        <div style="width: 100px;">
+          <label class="fw-bold mb-1">النوع</label>
+          <select class="form-select r-type">
+            <option value="in">داخلية</option>
+            <option value="out">خارجية</option>
+          </select>
+        </div>
+        <div style="width: 80px;">
+          <label class="fw-bold mb-1">أطفال</label>
+          <input type="number" class="form-control r-child" value="0" min="0">
+        </div>
+        <div style="width: 80px;">
+          <label class="fw-bold mb-1">ذكور</label>
+          <input type="number" class="form-control r-man" value="0" min="0">
+        </div>
+        <div style="width: 80px;">
+          <label class="fw-bold mb-1">إناث</label>
+          <input type="number" class="form-control r-woman" value="0" min="0">
+        </div>
+        <div style="width: 80px;">
+          <label class="fw-bold mb-1">ندوات</label>
+          <input type="number" class="form-control r-count" value="1" min="1">
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="recurring-days d-flex gap-3 flex-wrap fw-bold">
+          <label><input type="checkbox" value="6" class="r-day"> السبت</label>
+          <label><input type="checkbox" value="0" class="r-day"> الأحد</label>
+          <label><input type="checkbox" value="1" class="r-day"> الإثنين</label>
+          <label><input type="checkbox" value="2" class="r-day"> الثلاثاء</label>
+          <label><input type="checkbox" value="3" class="r-day"> الأربعاء</label>
+          <label><input type="checkbox" value="4" class="r-day"> الخميس</label>
+          <label class="text-danger"><input type="checkbox" value="5" class="r-day"> الجمعة</label>
+        </div>
+        <button type="button" class="btn btn-danger btn-sm mt-2 mt-md-0 d-block" onclick="this.closest('.recurring-topic-item').remove()">
+          <i class="fa-solid fa-trash"></i> إزالة
+        </button>
+      </div>
+    `;
+    container.appendChild(div);
+}
+
+function updateRecurringSubTopics(selectElement) {
+    let subSelect = selectElement.parentElement.nextElementSibling.querySelector(".r-sub-topic");
+    let NowOn = selectElement.value;
+    let Allsup = DataAD.filter(e => e.MainTopic == NowOn);
+    subSelect.innerHTML = '<option value="" hidden></option>';
+    Allsup.forEach(e => {
+        subSelect.innerHTML += `<option value="${e.Subtopic}">${e.Subtopic}</option>`;
+    });
+}
+
 var generateMonthYear = document.querySelector(".generateMonthYear");
 
 function duplicateTopic(uid) {
@@ -481,7 +598,7 @@ function generateFunc() {
         var formattedDate = day + "/" + month + "/" + year;
         let checkIn = daysCon.in[startDate.getDay()];
         let checkOut = daysCon.out[startDate.getDay()];
-        if (checkIn) {
+        if (checkIn && maxRandomIn > 0) {
             for (let index = 0; index < checkIn; index++) {
                 let randomNumber = Math.floor(Math.random() * (maxRandomIn - 0 + 0)) + 0;
                 // let trueObg = directDetiIn[randomNumber];
@@ -509,7 +626,7 @@ function generateFunc() {
             }
         }
 
-        if (checkOut) {
+        if (checkOut && maxRandomOut > 0) {
             for (let index = 0; index < checkOut; index++) {
                 let randomNumber = Math.floor(Math.random() * (maxRandomOut - 0 + 0)) + 0;
                 ////////////////////////////////////////////
@@ -535,36 +652,33 @@ function generateFunc() {
             }
         }
 
-        // إضافة "حملة 365 يوم سلامة" حسب إعدادات كل يوم
-        let campaignType = campaign365Days[startDate.getDay()];
-        if (campaignType) {
-            let campaign365Data = DataAD.find(t => t.id === 53);
-            // أخذ قيم الأطفال والذكور والإناث من آخر ندوة تم إنشاؤها في نفس اليوم
-            let lastEntry = DoneAll[DoneAll.length - 1];
-            if (campaign365Data) {
-                var campaignEntry = {
+        
+        let currentDayNum = startDate.getDay();
+        customRecurringTopics.forEach(rt => {
+            if (rt.days.includes(currentDayNum)) {
+                var recurringEntry = {
                     year: year,
                     month: month,
                     day: day,
-                    men: lastEntry ? lastEntry.men : 0,
-                    child: lastEntry ? lastEntry.child : 0,
-                    women: lastEntry ? lastEntry.women : 0,
-                    MainTopic: campaign365Data.MainTopic,
-                    Subtopic: campaign365Data.Subtopic,
-                    id: campaign365Data.id,
-                    in: campaignType === "in",
-                    out: campaignType === "out",
+                    men: rt.men,
+                    child: rt.child,
+                    women: rt.women,
+                    MainTopic: rt.MainTopic,
+                    Subtopic: rt.Subtopic,
+                    id: rt.id,
+                    in: rt.type === "in",
+                    out: rt.type === "out",
                     counter: counter,
-                    dayWeek: daysOfWeek[startDate.getDay()],
-                    seminarCount: lastEntry ? (lastEntry.seminarCount || 1) : 1,
+                    dayWeek: daysOfWeek[currentDayNum],
+                    seminarCount: rt.seminarCount,
                     uid: generateLegacyId()
                 }
-                DoneAll.push(campaignEntry);
+                DoneAll.push(recurringEntry);
                 counter++;
             }
-        }
+        });
 
-        startDate.setDate(startDate.getDate() + 1); // يزيد التاريخ بيوم واحد
+        startDate.setDate(startDate.getDate() + 1); 
     }
 
     // console.log(sortTopic(DoneAll));
