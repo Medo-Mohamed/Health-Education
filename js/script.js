@@ -24,7 +24,7 @@ advanced.addEventListener("click", function () {
 })
 
 function generateLegacyId() {
-    const timestamp = Date.now().toString(36); 
+    const timestamp = Date.now().toString(36);
     // console.log(Date.now().toString(36))
     const randomStr = Math.random().toString(36).substring(2, 8);
     return `${timestamp}-${randomStr}`;
@@ -86,7 +86,7 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
 
                         id: topicInfoId.id,
 
-                        uid:generateLegacyId() ,
+                        uid: generateLegacyId(),
 
                         in: row["خارجية"] === "داخلية",
                         out: row["خارجية"] === "خارجية",
@@ -199,17 +199,17 @@ var womenInput = document.getElementById("women");
 var menInput = document.getElementById("men")
 var childInput = document.getElementById("child");
 
-function isFloat(i){
-    return i%1!==0
+function isFloat(i) {
+    return i % 1 !== 0
 }
 
 document.querySelector(".done").onclick = function () {
     // console.log("here")
-        if((childInput.value==0 && menInput.value==0 &&womenInput.value==0) || 
-        (childInput.value <0 || isFloat(childInput.value) || menInput.value<0 || isFloat(menInput.value) || womenInput.value<0 || isFloat(womenInput.value)) ){
-            alert("لا يمكن ان تكون جميع قيم الاطفال والذكور والاناث فارغة او اصفار او سالبة او عشرية");
-            return 0;
-        }
+    if ((childInput.value == 0 && menInput.value == 0 && womenInput.value == 0) ||
+        (childInput.value < 0 || isFloat(childInput.value) || menInput.value < 0 || isFloat(menInput.value) || womenInput.value < 0 || isFloat(womenInput.value))) {
+        alert("لا يمكن ان تكون جميع قيم الاطفال والذكور والاناث فارغة او اصفار او سالبة او عشرية");
+        return 0;
+    }
     if (!(document.querySelector(".done").classList.contains("disabled"))) {
         child = +(childInput.value);
         man = +(menInput.value);
@@ -362,12 +362,12 @@ function sortTopic(array) {
         } else
             x[`${element.month}-${element.year}`] = [element];
     });
-    let n =1;
+    let n = 1;
     // console.log(array)
-    array.forEach((e,i)=>{
+    array.forEach((e, i) => {
         // console.log(e)
-        if( array[i].month>1 && i>0 && array[i].month!=array[i-1].month){n=1;}
-        e.counter=n++
+        if (array[i].month > 1 && i > 0 && array[i].month != array[i - 1].month) { n = 1; }
+        e.counter = n++
     })
     return x;
 }
@@ -388,6 +388,7 @@ function drowTopic(object) {
     <th>ذكور</th>
     <th>إناث</th>
     <th>عدد الندوات</th>
+    <th style ="width : 7%;">مضاعفة</th>
     <th style ="width : 7%;">تعديل</th>
     <th style ="width : 7%;">حذف</th>
     </thead>
@@ -398,7 +399,7 @@ function drowTopic(object) {
     Object.keys(object).forEach(ele => {
         let detti = ele.split("-");
         tbody.innerHTML += `<tr>
-        <td colspan="13" class="titelTopics fw-bolder">الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}</td>
+        <td colspan="14" class="titelTopics fw-bolder">الجلسات التثقيفية عن شهر ${detti[0]} لعام ${detti[1]}</td>
         </tr>
         `
         object[ele].forEach(i => {
@@ -416,6 +417,7 @@ function drowTopic(object) {
             <td>${i.men}</td>
             <td>${i.women}</td>
             <td>${i.seminarCount || 1}</td>
+            <td class="copyt"><i class="fa-solid fa-copy copyTopic text-primary" onclick = "duplicateTopic(\'${i.uid}\')" style="cursor: pointer;"></i></td>
             <td class ="${i.cahnged ? "retopict" : ""}"><i class="fa-solid fa-recycle reTopic" onclick = "reTopic(\'${i.uid}\')"></i></td>
             <td><i class="fa-solid fa-trash-can deleteTopic" onclick = "deleteTopic(\'${i.uid}\')"></i></td>
             </tr>
@@ -425,7 +427,7 @@ function drowTopic(object) {
     })
     tbody.innerHTML += `          
     <tr class = "NewTopicL" onclick = "AddNewTopic()">
-    <td colspan = "13"><i class="fa-solid fa-circle-plus"></i></td>
+    <td colspan = "14"><i class="fa-solid fa-circle-plus"></i></td>
     </tr>
     `;
     document.querySelector(".topicContan").style.display = "block";
@@ -437,6 +439,18 @@ function drowTopic(object) {
 
 
 var generateMonthYear = document.querySelector(".generateMonthYear");
+
+function duplicateTopic(uid) {
+    console.log("Duplicate topic with uid:", uid);
+    let ind = DoneAll.findIndex(ele => ele.uid == uid);
+    if (ind === -1) return;
+    let ele = DoneAll[ind];
+    let newEle = { ...ele };
+    newEle.uid = generateLegacyId();
+    newEle.counter = 0;
+    DoneAll.push(newEle);
+    drowTopic(sortTopic(DoneAll));
+}
 
 
 generate.addEventListener("click", generateFunc)
@@ -487,7 +501,7 @@ function generateFunc() {
                     counter: counter,
                     dayWeek: daysOfWeek[startDate.getDay()],
                     seminarCount: directDetiIn[randomNumber].seminarCount || 1,
-                    uid: generateLegacyId() 
+                    uid: generateLegacyId()
                 }
 
                 DoneAll.push(newop);
@@ -514,7 +528,7 @@ function generateFunc() {
                     counter: counter,
                     dayWeek: daysOfWeek[startDate.getDay()],
                     seminarCount: directDetiOut[randomNumber].seminarCount || 1,
-                    uid: generateLegacyId() 
+                    uid: generateLegacyId()
                 }
                 DoneAll.push(newop);
                 counter++;
@@ -543,7 +557,7 @@ function generateFunc() {
                     counter: counter,
                     dayWeek: daysOfWeek[startDate.getDay()],
                     seminarCount: lastEntry ? (lastEntry.seminarCount || 1) : 1,
-                    uid :generateLegacyId() 
+                    uid: generateLegacyId()
                 }
                 DoneAll.push(campaignEntry);
                 counter++;
@@ -567,9 +581,33 @@ function deleteTopic(e) {
     // console.log(dataMontlyAll)
     // console.log(e)
     let ind = DoneAll.findIndex(ele => ele.uid == e);
-    DoneAll.splice(ind, 1);
-    // console.log(DoneAll)
-    drowTopic(sortTopic(DoneAll));
+    if (ind === -1) return;
+    let ele = DoneAll[ind];
+    let formattedDate = ele.day + "/" + ele.month + "/" + ele.year;
+
+    overLay.innerHTML = "";
+    overLay.innerHTML += `<div class="befor-element" onclick="closeLay()"></div>`;
+    overLay.innerHTML += `
+    <div class="inputs-contain p-4">
+      <p class="fw-bold text-center fs-4 mt-3">هل انت متأكد أنك تريد حذف الموضوع :</p>
+      <p class="fw-bold text-center text-danger fs-3">"${ele.Subtopic}"</p>
+      <p class="fw-bold text-center fs-5">يوم ${ele.dayWeek} بتاريخ ${formattedDate}</p>
+      <div class="bottonssd d-flex justify-content-center mt-4 mb-2">
+        <button type="button" class="btn btn-danger mx-2 px-4" onclick="confirmDeleteTopic('${e}')">تأكيد</button>
+        <button type="button" class="btn btn-secondary mx-2 px-4" onclick="closeLay()">إغلاق</button>
+      </div>
+    </div>
+    `;
+    overLay.style.display = "flex";
+}
+
+function confirmDeleteTopic(e) {
+    let ind = DoneAll.findIndex(ele => ele.uid == e);
+    if (ind !== -1) {
+        DoneAll.splice(ind, 1);
+        drowTopic(sortTopic(DoneAll));
+    }
+    closeLay();
 }
 /////////////////////////////////////////////////////////////////////
 var overLay = document.querySelector(".overLay");
@@ -679,11 +717,11 @@ function saveChangesLay(params) {
         let manchange = Number(document.getElementById("manchange").value);
         let womanchange = Number(document.getElementById("womanchange").value);
         let seminarCountChange = Number(document.getElementById("seminarCountChange").value) || 1;
-        if(childchange <0 || isFloat(childchange) || manchange<0 || isFloat(manchange) || womanchange<0 || isFloat(womanchange) || seminarCountChange<1 || isFloat(seminarCountChange) ){
+        if (childchange < 0 || isFloat(childchange) || manchange < 0 || isFloat(manchange) || womanchange < 0 || isFloat(womanchange) || seminarCountChange < 1 || isFloat(seminarCountChange)) {
             alert("لا يمكن إدخال كسور أو قيم سالبة");
             return 0;
         }
-        if(childchange ==0  && manchange==0 && womanchange==0 ){
+        if (childchange == 0 && manchange == 0 && womanchange == 0) {
             alert("لا يمكن ان تكون كل القيم بأصفار");
             return 0;
         }
@@ -790,7 +828,7 @@ function acceptNewTopic() {
             id: eleM.id,
             // in: false,
             // out: true,
-            uid: generateLegacyId() ,
+            uid: generateLegacyId(),
             counter: 0,
             dayWeek: dayWeaka,
             seminarCount: seminarCountNew,
