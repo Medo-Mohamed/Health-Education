@@ -104,8 +104,8 @@ document.getElementById('excelFile').addEventListener('change', async (e) => {
                         child: Number(rowObj["اطفال"] || 0),
                         women: Number(rowObj["إناث"] || 0),
 
-                        MainTopic: rowObj["الموضوع الرئيسي"],
-                        Subtopic: rowObj["الموضوع الفرعي"],
+                        MainTopic: topicInfoId.MainTopic,
+                        Subtopic: topicInfoId.Subtopic,
 
                         id: topicInfoId.id,
 

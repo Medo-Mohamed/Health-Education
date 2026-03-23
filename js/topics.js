@@ -522,7 +522,7 @@ const DataAD = [
     {
         id: 53,
         MainTopic: "مبادرات رئاسية وحملات توعية",
-        Subtopic: "حملة 365 يوم سلامة",
+        Subtopic: "حملة 365 يوم سلامة",
         in: false,
         out: false,
         child: 0,
